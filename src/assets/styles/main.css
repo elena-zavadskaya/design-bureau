@@ -1,0 +1,123 @@
+.btn,
+a.btn,
+.router-link.btn {
+  text-decoration: none !important;
+  position: relative;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 0;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  padding: 12px 30px;
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.btn:hover,
+a.btn:hover,
+.router-link.btn:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+  border-color: #000;
+}
+
+.btn-primary {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+.btn-primary:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.btn-outline:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+.btn-sm {
+  padding: 8px 20px;
+  font-size: 0.85rem;
+}
+
+.btn-lg {
+  padding: 14px 35px;
+  font-size: 1rem;
+}
+
+.navbar-collapse {
+  transition: all 0.4s ease;
+}
+
+.navbar-toggler {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+.app-header {
+  z-index: 1000;
+}
+
+.app-header {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.navbar {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+nav.navbar {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.navbar::before,
+.navbar::after {
+  content: none !important;
+  display: none !important;
+}
+
+.navbar-toggler-icon {
+  background-image: none !important;
+}
+
+.navbar-toggler-icon {
+  display: none !important;
+}
+
+.navbar-toggler {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.navbar-toggler span {
+  display: none !important;
+}
