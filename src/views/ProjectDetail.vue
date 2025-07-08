@@ -3,25 +3,26 @@
     <div class="container">
       <div class="row">
         <div class="col-12 mb-5">
-          <!-- Минималистичная кнопка "Назад к проектам" -->
           <RouterLink 
             to="/projects" 
             class="back-button d-inline-flex align-items-center text-decoration-none mb-4"
           >
             <i class="bi bi-arrow-left me-2"></i> Назад к проектам
           </RouterLink>
-          <h1 class="display-4 mb-2">{{ project.title }}</h1>
-          <p class="lead text-muted mb-4">Краткое описание проекта</p>
+          <h1 class="display-5 fw-normal mb-3">{{ project.title }}</h1>
+          <p class="text-muted mb-4">{{ project.subtitle || 'Дизайн-проект' }}</p>
+          <div class="divider mb-4"></div>
         </div>
       </div>
 
-      <div class="row mb-5">
-        <div class="col-12 col-lg-7 mb-5 mb-lg-0">
+      <div class="row mb-5 d-flex align-items-stretch">
+        <div class="col-12 col-lg-7 mb-4 mb-lg-0">
           <div class="main-image-container position-relative overflow-hidden" style="height: 500px">
             <img 
               :src="getImageUrl('main.jpg', 1200)" 
               :alt="project.title" 
               class="w-100 h-100 object-fit-cover"
+              @click="openModal(getImageUrl('main.jpg', 1200))"
               @load="mainImageLoaded = true"
             />
             <div v-if="!mainImageLoaded" class="image-placeholder position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
@@ -32,20 +33,26 @@
           </div>
         </div>
         <div class="col-12 col-lg-5">
-          <!-- Правый блок с фиксированной высотой -->
-          <div class="description-container bg-light p-4 h-100">
-            <h3 class="mb-4">Задача клиента</h3>
-            <p class="mb-4">Подробное описание задачи, которую поставил клиент перед дизайнерами.</p>
+          <div class="task-content">
+            <h3 class="section-title">Задача клиента</h3>
+            <p class="mb-0">{{ project.task || 'Информация уточняется' }}</p>
+          </div>
+        </div>
+      </div>
 
-            <h3 class="mb-4">Решение</h3>
-            <p>Описание того, как дизайнеры решили поставленную задачу.</p>
+      <div class="row mb-5">
+        <div class="col-12">
+          <div class="solution-content">
+            <h3 class="section-title">Решение</h3>
+            <p class="mb-0">{{ project.solution || 'Информация уточняется' }}</p>
           </div>
         </div>
       </div>
 
       <div class="row" v-if="project.imagesCount > 0">
         <div class="col-12 mb-5">
-          <h2 class="mb-4">Галерея проекта</h2>
+          <h2 class="h4 fw-normal mb-4 text-uppercase letter-spacing">Галерея проекта</h2>
+          <div class="divider mb-4"></div>
           <div class="row g-3">
             <div 
               class="col-6 col-md-4 col-lg-3" 
@@ -58,6 +65,7 @@
                   :alt="`${project.title} - Фото ${i}`"
                   class="w-100 h-100 object-fit-cover"
                   loading="lazy"
+                  @click="openModal(getImageUrl(`gallery-${i}.jpg`, 1200), i)"
                   @load="galleryImagesLoaded[i] = true"
                 />
                 <div v-if="!galleryImagesLoaded[i]" class="image-placeholder position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center">
@@ -71,6 +79,12 @@
         </div>
       </div>
     </div>
+    <div v-if="showModal" class="modal-overlay" @click.self="closeModal">
+      <button class="nav-button left" @click.stop="prevImage">&#10094;</button>
+      <img :src="modalImageSrc" alt="Просмотр изображения" class="modal-image" />
+      <button class="nav-button right" @click.stop="nextImage">&#10095;</button>
+      <button class="close-button" @click="closeModal">&times;</button>
+    </div>
   </div>
 </template>
 
@@ -83,7 +97,10 @@ export default {
     return {
       project: null,
       mainImageLoaded: false,
-      galleryImagesLoaded: {}
+      galleryImagesLoaded: {},
+      showModal: false,
+      modalImageSrc: '',
+      currentImageIndex: null, 
     }
   },
   created() {
@@ -102,6 +119,27 @@ export default {
     getImageUrl(filename, size = 800, format = 'webp') {
       const baseName = filename.replace(/\.\w+$/, '')
       return `/images/optimized/projects/project-${this.project.id}/${baseName}-${size}w.${format}`
+    },
+    openModal(imageUrl, index = null) {
+      this.modalImageSrc = imageUrl;
+      this.currentImageIndex = index;
+      this.showModal = true;
+    },
+    closeModal() {
+      this.showModal = false;
+      this.modalImageSrc = '';
+    },
+    prevImage() {
+      if (this.currentImageIndex && this.currentImageIndex > 1) {
+        this.currentImageIndex--;
+        this.modalImageSrc = this.getImageUrl(`gallery-${this.currentImageIndex}.jpg`, 1200);
+      }
+    },
+    nextImage() {
+      if (this.currentImageIndex && this.currentImageIndex < this.project.imagesCount) {
+        this.currentImageIndex++;
+        this.modalImageSrc = this.getImageUrl(`gallery-${this.currentImageIndex}.jpg`, 1200);
+      }
     }
   }
 }
@@ -113,32 +151,17 @@ export default {
   padding-bottom: 4rem;
 }
 
-/* Стили для минималистичной кнопки "Назад" */
 .back-button {
-  color: #000; /* Черный цвет текста */
-  font-weight: 500;
-  transition: all 0.2s ease;
+  color: #333;
+  font-weight: 400;
+  transition: all 0.3s ease;
   padding: 0.25rem 0;
   position: relative;
-}
-
-.back-button:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background-color: #000;
-  transition: width 0.3s ease;
+  font-size: 0.95rem;
 }
 
 .back-button:hover {
-  color: #333; /* Темно-серый при наведении */
-}
-
-.back-button:hover:after {
-  width: 100%;
+  color: #000;
 }
 
 .back-button i {
@@ -146,18 +169,124 @@ export default {
 }
 
 .back-button:hover i {
-  transform: translateX(-4px);
+  transform: translateX(-3px);
 }
 
-/* Выравнивание высоты блоков */
-.description-container {
-  height: 500px; /* Такая же высота как у основного изображения */
+h1 {
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(0,0,0,0.05);
+  width: 100%;
+}
+
+.letter-spacing {
+  letter-spacing: 0.1em;
+}
+
+/* Стили для секций */
+:deep(.section-title) {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  font-weight: 600 !important;
+  font-size: 22px !important;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  height: 2px;
+  background-color: black;
+}
+
+.task-content p, 
+.solution-content p {
+  line-height: 1.7;
+  color: #444;
+  font-weight: 300;
+}
+
+.main-image-container {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.01);
+}
+
+.main-image-container img,
+.gallery-image img {
+  cursor: pointer;
+}
+
+.gallery-image {
+  transition: transform 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.01);
+}
+
+.gallery-image:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 10px;
+  z-index: 10000;
+}
+
+.nav-button.left {
+  left: 20px;
+}
+
+.nav-button.right {
+  right: 20px;
 }
 
 @media (max-width: 991px) {
-  .description-container {
-    height: auto; /* На планшетах и мобильных - авто высота */
-    min-height: 400px;
+  .task-content {
+    padding-top: 2rem;
   }
 }
 
@@ -165,6 +294,23 @@ export default {
   .project-detail {
     padding-top: 4rem;
     padding-bottom: 3rem;
+    padding-right: 1.5rem;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  .main-image-container {
+    height: 400px !important;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .back-button {
+    margin-top: 2rem;
   }
 }
 </style>

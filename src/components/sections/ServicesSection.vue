@@ -16,6 +16,16 @@
           :index="index"
         />
       </div>
+      
+      <!-- Кнопка перехода на страницу услуг -->
+      <div class="text-center mt-6">
+        <router-link 
+          to="/services" 
+          class="btn btn-outline-dark services-btn"
+        >
+          Все услуги
+        </router-link>
+      </div>
     </div>
   </section>
 </template>
@@ -40,7 +50,7 @@ export default {
 <style scoped>
 .services-section {
   background-color: #fafafa;
-  padding-bottom: 5rem; /* ДОБАВЛЕН НИЖНИЙ ОТСТУП */
+  padding-bottom: 5rem;
 }
 
 .section-title {
@@ -69,10 +79,31 @@ export default {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr); /* ОБНОВЛЁННАЯ СЕТКА */
+  grid-template-columns: repeat(1, 1fr);
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+/* Кнопка "Все услуги" */
+.services-btn {
+  padding: 12px 40px;
+  font-size: 1.1rem;
+  letter-spacing: 0.8px;
+  border-width: 2px;
+  border-radius: 0;
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+.services-btn:hover {
+  background-color: #000;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 /* ОТОБРАЖЕНИЕ 2 КОЛОНКИ НА ПЛАНШЕТАХ */
@@ -101,6 +132,11 @@ export default {
   .services-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+  
+  .services-btn {
+    padding: 10px 30px;
+    font-size: 1rem;
   }
 }
 </style>

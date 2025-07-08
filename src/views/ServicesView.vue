@@ -1,11 +1,13 @@
 <template>
   <div class="services-page">
-    <!-- Заголовок страницы с увеличенным отступом -->
-    <section class="page-header">
-      <h1>Услуги и цены</h1>
-      <p class="intro-text">
-        {{ servicesData.intro }}
-      </p>
+    <!-- Заголовок страницы -->
+    <section class="page-header-bg">
+      <div class="page-header">
+        <h1>Услуги</h1>
+        <p class="intro-text">
+          {{ servicesData.intro }}
+        </p>
+      </div>
     </section>
 
     <!-- Основные услуги -->
@@ -15,7 +17,6 @@
         <div class="service-header">
           <h2>{{ servicesData.designProject.title }}</h2>
           <div class="price-info">
-            <span class="price">{{ servicesData.designProject.price }}</span>
             <span class="duration">{{ servicesData.designProject.duration }}</span>
           </div>
         </div>
@@ -62,13 +63,10 @@
       <div class="service-card" v-for="service in otherServices" :key="service.title">
         <div class="service-header">
           <h2>{{ service.title }}</h2>
-          <div class="price-info">
-            <span class="price">{{ service.price }}</span>
-          </div>
         </div>
-        <p>{{ service.description }}</p>
+        <p class="spaced-text">{{ service.description }}</p>
         <p class="important-note">{{ service.importantNote }}</p>
-        
+
         <Accordion :title="service.accordionTitle">
           <ul class="service-list">
             <li v-for="(item, idx) in service.servicesList" :key="idx">{{ item }}</li>
@@ -82,6 +80,7 @@
 <script>
 import Accordion from '@/components/ui/Accordion.vue';
 import { servicesPageData } from '@/data/servicesData';
+import headerBg from '@/assets/images/services-header-bg.jpg';
 
 export default {
   name: 'ServicesView',
@@ -90,7 +89,8 @@ export default {
   },
   data() {
     return {
-      servicesData: servicesPageData
+      servicesData: servicesPageData,
+      headerBg
     }
   },
   computed: {
@@ -107,32 +107,39 @@ export default {
 </script>
 
 <style scoped>
-/* Минималистичные черно-белые стили с визуальными улучшениями */
+/* Общие стили страницы */
 .services-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 0 1rem 2rem;
   font-family: 'Inter', 'Helvetica Neue', sans-serif;
   color: #000;
   background: #fff;
 }
 
-.page-header {
-  text-align: center;
-  margin-bottom: 4rem;
-  padding-top: 4rem;
+/* Заголовок с фоновым изображением на всю ширину */
+.page-header-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                    url('@/assets/images/services-header-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 12rem 0;
+  width: 100vw;
   position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 4rem;
 }
 
-.page-header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 2px;
-  background: #000;
+.page-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 0 1rem;
 }
 
 .page-header h1 {
@@ -140,9 +147,8 @@ export default {
   font-weight: 300;
   letter-spacing: -0.5px;
   margin-bottom: 1.5rem;
-  color: #000;
-  position: relative;
   padding-bottom: 1rem;
+  position: relative;
 }
 
 .page-header h1::after {
@@ -151,9 +157,9 @@ export default {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  height: 1px;
-  background: #000;
+  width: 80px;
+  height: 2px;
+  background: white;
 }
 
 .intro-text {
@@ -161,10 +167,10 @@ export default {
   line-height: 1.8;
   max-width: 800px;
   margin: 2rem auto 0;
-  color: #444;
   font-weight: 300;
   position: relative;
   padding-top: 2rem;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .intro-text::before {
@@ -175,9 +181,10 @@ export default {
   transform: translateX(-50%);
   width: 40px;
   height: 1px;
-  background: #ddd;
+  background: rgba(255, 255, 255, 0.7);
 }
 
+/* Основные услуги */
 .services-container {
   display: grid;
   gap: 3rem;
@@ -187,7 +194,6 @@ export default {
   background: #fff;
   border: 1px solid #eee;
   padding: 3rem;
-  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
@@ -200,16 +206,11 @@ export default {
   width: 4px;
   height: 100%;
   background: #000;
-  transform: translateY(100%);
   transition: transform 0.4s ease;
 }
 
 .service-card:hover {
   border-color: #ddd;
-}
-
-.service-card:hover::before {
-  transform: translateY(0);
 }
 
 .service-header {
@@ -222,17 +223,6 @@ export default {
   padding-bottom: 2rem;
   border-bottom: 1px solid #eee;
   position: relative;
-}
-
-.service-header::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background: #000;
-  transition: width 0.3s ease;
 }
 
 .service-card:hover .service-header::after {
@@ -476,14 +466,14 @@ export default {
   padding-left: 1rem;
 }
 
-.service-list li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.7rem;
-  width: 4px;
-  height: 4px;
-  background: #000;
+.service-card > .spaced-text {
+  line-height: 1.9;
+  margin-bottom: 1.2rem;
+}
+
+.service-card > .important-note.spaced-text {
+  line-height: 1.9;
+  padding: 1.5rem;
 }
 
 /* Анимации и эффекты */
@@ -504,6 +494,18 @@ export default {
 
 /* Адаптивность */
 @media (max-width: 768px) {
+  .page-header-bg {
+    padding: 5rem 0;
+  }
+  
+  .page-header {
+    padding: 0 1.5rem;
+  }
+  
+  .page-header h1 {
+    font-size: 2.2rem;
+  }
+
   .service-header {
     flex-direction: column;
     align-items: flex-start;
@@ -517,22 +519,27 @@ export default {
     padding: 2rem;
   }
   
-  .page-header {
-    padding-top: 3rem;
-  }
-  
-  .page-header h1 {
-    font-size: 2.2rem;
+  .service-card > .spaced-text,
+  .service-card > .important-note.spaced-text {
+    line-height: 1.85;
   }
 }
 
 @media (max-width: 480px) {
-  .service-card {
-    padding: 1.5rem;
+  .page-header-bg {
+    padding: 4rem 0;
   }
   
   .page-header {
-    padding-top: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .service-card {
+    padding: 1.5rem;
   }
   
   .stage {

@@ -6,11 +6,7 @@
     </div>
     
     <div class="service-details">
-      <div class="service-meta">
-        <span class="service-price">{{ service.price }}</span>
-        <span class="service-duration">{{ service.duration }}</span>
-      </div>
-      
+      <!-- УДАЛЕН БЛОК С ЦЕНОЙ -->
       <p class="service-description">{{ service.description }}</p>
       
       <div class="service-features">
@@ -65,14 +61,14 @@ export default {
 
 .service-index {
   position: absolute;
-  top: 0.5rem;       /* ВЫРАВНИВАНИЕ ПО ВЕРТИКАЛИ */
+  top: 0.5rem;
   right: 1.5rem;
-  font-size: 3.5rem; /* УВЕЛИЧЕН РАЗМЕР */
-  font-weight: 700;  /* ЖИРНЫЙ ШРИФТ */
-  color: #e0e0e0;    /* КОНТРАСТНЫЙ ЦВЕТ */
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #e0e0e0;
   line-height: 1;
   z-index: 0;
-  opacity: 0.9;      /* ЛЕГКАЯ ПРОЗРАЧНОСТЬ */
+  opacity: 0.9;
 }
 
 .service-title {
@@ -90,24 +86,7 @@ export default {
   flex-direction: column;
 }
 
-.service-meta {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid #f5f5f5;
-}
-
-.service-price {
-  font-weight: 500;
-  color: #000;
-}
-
-.service-duration {
-  color: #6c757d;
-  font-size: 0.9rem;
-}
-
+/* УДАЛЕНЫ СТИЛИ ДЛЯ ЦЕНЫ */
 .service-description {
   color: #666;
   margin-bottom: 1.5rem;

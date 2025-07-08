@@ -36,6 +36,18 @@
           />
         </div>
       </div>
+      
+      <!-- Кнопка центрирована под колонками -->
+      <div class="row justify-content-center mt-5">
+        <div class="col-auto">
+          <router-link 
+            to="/about" 
+            class="btn btn-outline-dark about-btn"
+          >
+            Подробнее о бюро
+          </router-link>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -122,7 +134,6 @@ export default {
   color: #666;
 }
 
-/* Фото без рамки и подписи */
 .founders-photo {
   width: 100%;
   height: auto;
@@ -131,6 +142,22 @@ export default {
   border-radius: 0;
   box-shadow: none;
 }
+
+.about-btn {
+  padding: 12px 40px;
+  font-size: 1.1rem;
+  letter-spacing: 0.8px;
+  border-width: 2px;
+  border-radius: 0;
+  transition: all 0.4s ease;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.about-btn:hover {
+  background-color: #000;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
 </style>
-
-

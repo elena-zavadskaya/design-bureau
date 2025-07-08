@@ -1,3 +1,4 @@
+/* КНОПКИ */
 .btn,
 a.btn,
 .router-link.btn {
@@ -61,25 +62,86 @@ a.btn:hover,
   font-size: 1rem;
 }
 
+/* НАВБАР */
 .navbar-collapse {
-  transition: all 0.4s ease;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 999;
+}
+
+.navbar-collapse.show {
+  transform: translateX(0);
 }
 
 .navbar-toggler {
   border: none !important;
-  outline: none !important;
+  background: transparent !important;
   box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  z-index: 1001;
 }
 
-.navbar-toggler:focus {
-  box-shadow: none !important;
+.navbar-toggler-icon {
+  display: block !important;
+  width: 25px;
+  height: 2px;
+  background-color: #000;
+  position: relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 2px;
+  background-color: #000;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon::after {
+  top: 8px;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 998;
+}
+
+.mobile-menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.navbar-collapse {
+  transition: transform 0.3s ease;
 }
 
 .app-header {
   z-index: 1000;
-}
-
-.app-header {
   border-bottom: none !important;
   box-shadow: none !important;
 }
@@ -100,24 +162,83 @@ nav.navbar {
   display: none !important;
 }
 
-.navbar-toggler-icon {
-  background-image: none !important;
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none !important;
+  }
 }
 
-.navbar-toggler-icon {
-  display: none !important;
+@media (max-width: 992px) {
+  .navbar {
+    padding-right: 1.5rem !important;
+  }
+
+  .navbar-collapse {
+    /* ... существующие стили ... */
+    padding: 80px 25px 30px;
+    align-items: center; /* Добавлено выравнивание по центру */
+    text-align: center; /* Центрирование текста */
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center; /* Изменено с flex-start на center */
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-item {
+    width: 100%;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.4s ease;
+    display: flex; /* Добавлено */
+    justify-content: center; /* Центрирование содержимого */
+  }
+
+  .nav-link {
+    padding: 15px 0 !important;
+    font-size: 1.15rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    justify-content: center; /* Изменено с flex-start на center */
+  }
+
+  .header-contact-btn {
+    width: auto; /* Изменено с 100% на auto */
+    margin-top: 15px;
+    padding: 14px 30px !important; /* Добавлены боковые отступы */
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    display: inline-flex; /* Для правильного центрирования */
+  }
+  
+  /* Убираем границы у последнего пункта */
+  .nav-item:last-child .nav-link {
+    border-bottom: none;
+  }
 }
 
-.navbar-toggler {
-  border: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  width: auto !important;
-  height: auto !important;
+:root {
+  --scrollbar-width: 0px;
 }
 
-.navbar-toggler span {
-  display: none !important;
+/* Убираем горизонтальный скролл на всем сайте */
+body {
+  position: relative;
+}
+
+/* Для мобильного меню */
+@media (max-width: 576px) {
+  .navbar-collapse {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 1.5rem;
+    padding-right: 5rem;
+  }
+  
+  .nav-link {
+    font-size: 1rem; /* Уменьшаем размер шрифта */
+    padding: 12px 0 !important; /* Уменьшаем отступы */
+  }
 }

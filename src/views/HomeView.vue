@@ -1,10 +1,12 @@
 <template>
   <div class="home-view">
     <HeroSection />
-    <FeaturedProjects :projects="featuredProjects" />
-    <AboutSection :values="values" />
-    <ServicesSection :services="services" />
-    <TestimonialsSection :testimonials="testimonials" />
+    <div class="content">
+      <FeaturedProjects :projects="featuredProjects" />
+      <AboutSection :values="values" />
+      <ServicesSection :services="services" />
+      <TestimonialsSection :testimonials="testimonials" />
+    </div>
     <CtaSection />
   </div>
 </template>
@@ -65,6 +67,10 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .content {
+    padding-right: 1.5rem;
+  }
+
   .home-view > section:not(.hero-section) {
     padding: 3rem 0 !important;
   }

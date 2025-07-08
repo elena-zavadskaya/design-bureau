@@ -8,6 +8,12 @@ export default defineConfig({
     vue(),
     imagetools()
   ],
+  assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.jpeg', '**/*.png','**/*.PNG', '**/*.svg'],
+  server: {
+    hmr: {
+      overlay: false
+    }
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

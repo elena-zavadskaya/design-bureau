@@ -8,7 +8,7 @@
             <div class="logo-symbol"></div>
           </div>
           <h1 class="hero-title mb-4">
-            E.S.S.E. Design & Decoration
+            E.S.S.E.<br> Design & Decoration
           </h1>
           <p class="hero-subtitle mb-5">
             Вневременные интерьеры, вдохновленные культурным наследием России

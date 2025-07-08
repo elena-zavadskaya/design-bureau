@@ -8,7 +8,19 @@
         </p>
       </div>
       
-      <TestimonialSlider :testimonials="testimonials" />
+      <!-- Добавлен отступ после слайдера -->
+      <TestimonialSlider :testimonials="testimonials" class="mb-5" />
+      
+      <!-- Кнопка перехода на страницу отзывов -->
+      <div class="text-center">
+        <router-link 
+          to="/testimonials" 
+          class="btn btn-outline-dark btn-lg rounded-0 px-5 py-3 position-relative view-all-btn"
+        >
+          <span class="btn-text">Смотреть все отзывы</span>
+          <i class="bi bi-arrow-right ms-2"></i>
+        </router-link>
+      </div>
     </div>
   </section>
 </template>
@@ -60,6 +72,37 @@ export default {
   color: #6c757d;
 }
 
+/* Стили для кнопки */
+.view-all-btn {
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border-width: 1px;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+}
+
+.view-all-btn .bi {
+  transition: transform 0.3s ease;
+}
+
+.view-all-btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.view-all-btn:hover .bi {
+  transform: translateX(5px);
+}
+
+/* Добавлен отступ между слайдером и кнопкой */
+.testimonials-section .container > .text-center {
+  margin-top: 2.5rem; /* Новый отступ */
+}
+
+/* Адаптивные стили */
 @media (max-width: 768px) {
   .testimonials-section {
     padding: 3rem 0;
@@ -68,5 +111,39 @@ export default {
   .section-title {
     font-size: 2rem;
   }
+  
+  .view-all-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Уменьшаем отступ на мобильных */
+  .testimonials-section .container > .text-center {
+    margin-top: 2rem;
+  }
+}
+
+/* Дополнительный отступ на очень маленьких экранах */
+@media (max-width: 576px) {
+  .testimonials-section .container > .text-center {
+    margin-top: 1.5rem;
+  }
+}
+
+/* Анимация для кнопки */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+.view-all-btn:hover {
+  animation: pulse 1.5s infinite;
 }
 </style>

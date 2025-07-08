@@ -319,8 +319,7 @@ export default {
 
 /* Правильное оформление блока Философия */
 .philosophy-section {
-  background-color: #000;
-  color: #fff;
+  color: #000;
   padding: 4rem 0;
   margin-bottom: 4rem;
 }
@@ -331,8 +330,16 @@ export default {
   padding: 0 1.5rem;
 }
 
+.philosophy-section .text {
+  max-width: 600px;
+  padding: 3rem;
+  border-left: 3px solid #000;
+}
+
 .philosophy-section .text h2 {
-  color: #fff;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
 }
 
 .philosophy-section .text ul {
@@ -342,18 +349,19 @@ export default {
 
 .philosophy-section .text ul li {
   position: relative;
-  padding-left: 1.5rem;
+  padding-left: 2rem;
   margin-bottom: 1rem;
-  color: #fff;
+  line-height: 1.6;
+  font-size: 1.1rem;
 }
 
 .philosophy-section .text ul li::before {
   content: '•';
   position: absolute;
   left: 0;
-  color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   line-height: 1;
+  top: -0.3rem;
 }
 
 .timeline-section h2 {
@@ -368,17 +376,6 @@ export default {
   gap: 2rem;
   position: relative;
   padding-left: 3rem;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 24px;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: #e0e0e0;
-  border-radius: 2px;
 }
 
 .timeline-item {

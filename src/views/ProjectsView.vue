@@ -138,6 +138,7 @@ export default {
   .projects-view {
     padding-top: 4rem;
     padding-bottom: 3rem;
+    padding-right: 1.5rem;
   }
 
   .project-title {
