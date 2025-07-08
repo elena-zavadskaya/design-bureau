@@ -28,7 +28,7 @@
           
           <div class="intro-image">
             <div class="gallery-image-container">
-              <img src="@/assets/images/gallery/ESS-INTRO-01.JPG" alt="Основательницы галереи с картинами" class="gallery-image">
+              <img src="@/assets/images/gallery/ESS-INTRO-01.jpg" alt="Основательницы галереи с картинами" class="gallery-image">
             </div>
           </div>
         </div>
