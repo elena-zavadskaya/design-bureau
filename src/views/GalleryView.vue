@@ -154,7 +154,7 @@ export default {
 /* Заголовок с фоновым изображением */
 .page-header-bg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                  url('@/assets/images/gallery/ess-header-01.jpg');
+                  url('@/assets/images/gallery/ESS-HEADER-01.JPG');
   background-size: cover;
   background-position: center;
   height: 65vh;
