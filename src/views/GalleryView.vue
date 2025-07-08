@@ -28,7 +28,7 @@
           
           <div class="intro-image">
             <div class="gallery-image-container">
-              <img src="@/assets/images/gallery/ESS-INTRO-01.jpg" alt="Основательницы галереи с картинами" class="gallery-image">
+              <img src="@/assets/images/gallery/ESS-INTRO-01.JPG" alt="Основательницы галереи с картинами" class="gallery-image">
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@
           <div class="collection-card">
             <div class="collection-image left">
               <div class="gallery-image-container">
-                <img src="@/assets/images/gallery/ESS-OLD-01.jpg" alt="Репродукция старинной гравюры" class="gallery-image">
+                <img src="@/assets/images/gallery/ESS-OLD-01.JPG" alt="Репродукция старинной гравюры" class="gallery-image">
               </div>
             </div>
             
@@ -62,7 +62,7 @@
             
             <div class="collection-image right">
               <div class="gallery-image-container">
-                <img src="@/assets/images/gallery/ESS-SOVIET-01.jpg" alt="Эстамп советского художника" class="gallery-image">
+                <img src="@/assets/images/gallery/ESS-SOVIET-01.JPG" alt="Эстамп советского художника" class="gallery-image">
               </div>
             </div>
           </div>
@@ -71,7 +71,7 @@
           <div class="collection-card">
             <div class="collection-image left">
               <div class="gallery-image-container">
-                <img src="@/assets/images/gallery/ESS-MODERN-01.jpg" alt="Современный русский художник за работой" class="gallery-image">
+                <img src="@/assets/images/gallery/ESS-MODERN-01.JPG" alt="Современный русский художник за работой" class="gallery-image">
               </div>
             </div>
             
@@ -88,7 +88,7 @@
         <div class="custom-selection">
           <div class="custom-image">
             <div class="gallery-image-container">
-              <img src="@/assets/images/gallery/ESS-CUSTOM-01.jpg" alt="Индивидуальный подбор картин" class="gallery-image">
+              <img src="@/assets/images/gallery/ESS-CUSTOM-01.JPG" alt="Индивидуальный подбор картин" class="gallery-image">
             </div>
           </div>
           
