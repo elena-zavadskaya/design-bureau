@@ -71,7 +71,7 @@
           <div class="collection-card">
             <div class="collection-image left">
               <div class="gallery-image-container">
-                <img src="@/assets/images/gallery/ESS-MODERN-01.JPG" alt="Современный русский художник за работой" class="gallery-image">
+                <img src="@/assets/images/gallery/ESS-MODERN-01.jpg" alt="Современный русский художник за работой" class="gallery-image">
               </div>
             </div>
             
@@ -88,7 +88,7 @@
         <div class="custom-selection">
           <div class="custom-image">
             <div class="gallery-image-container">
-              <img src="@/assets/images/gallery/ESS-CUSTOM-01.JPG" alt="Индивидуальный подбор картин" class="gallery-image">
+              <img src="@/assets/images/gallery/ESS-CUSTOM-02.JPG" alt="Индивидуальный подбор картин" class="gallery-image">
             </div>
           </div>
           
