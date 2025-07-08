@@ -168,54 +168,9 @@ nav.navbar {
   }
 }
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .navbar {
     padding-right: 1.5rem !important;
-  }
-
-  .navbar-collapse {
-    /* ... существующие стили ... */
-    padding: 80px 25px 30px;
-    align-items: center; /* Добавлено выравнивание по центру */
-    text-align: center; /* Центрирование текста */
-  }
-
-  .navbar-nav {
-    flex-direction: column;
-    align-items: center; /* Изменено с flex-start на center */
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  .nav-item {
-    width: 100%;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: all 0.4s ease;
-    display: flex; /* Добавлено */
-    justify-content: center; /* Центрирование содержимого */
-  }
-
-  .nav-link {
-    padding: 15px 0 !important;
-    font-size: 1.15rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    width: 100%;
-    justify-content: center; /* Изменено с flex-start на center */
-  }
-
-  .header-contact-btn {
-    width: auto; /* Изменено с 100% на auto */
-    margin-top: 15px;
-    padding: 14px 30px !important; /* Добавлены боковые отступы */
-    font-size: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
-    display: inline-flex; /* Для правильного центрирования */
-  }
-  
-  /* Убираем границы у последнего пункта */
-  .nav-item:last-child .nav-link {
-    border-bottom: none;
   }
 }
 
@@ -223,22 +178,19 @@ nav.navbar {
   --scrollbar-width: 0px;
 }
 
-/* Убираем горизонтальный скролл на всем сайте */
 body {
   position: relative;
 }
 
-/* Для мобильного меню */
 @media (max-width: 576px) {
   .navbar-collapse {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 1.5rem;
-    padding-right: 5rem;
+    overflow-x: hidden !important;
+    padding-right: 1.5rem !important;
   }
   
-  .nav-link {
-    font-size: 1rem; /* Уменьшаем размер шрифта */
-    padding: 12px 0 !important; /* Уменьшаем отступы */
+  .navbar-collapse .nav-link,
+  .navbar-collapse .header-contact-btn {
+    white-space: normal;
+    word-wrap: break-word;
   }
-}
+} */
