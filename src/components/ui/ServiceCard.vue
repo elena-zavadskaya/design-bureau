@@ -1,12 +1,10 @@
 <template>
   <div class="service-card" :class="`service-${index}`">
     <div class="service-header">
-      <div class="service-index">0{{ index + 1 }}</div>
       <h3 class="service-title">{{ service.title }}</h3>
     </div>
     
     <div class="service-details">
-      <!-- УДАЛЕН БЛОК С ЦЕНОЙ -->
       <p class="service-description">{{ service.description }}</p>
       
       <div class="service-features">
@@ -53,30 +51,14 @@ export default {
 }
 
 .service-header {
-  padding: 1.5rem 1.5rem 1rem;
-  padding-right: 4rem; /* ЗАЩИТА ОТ ПЕРЕКРЫТИЯ ЦИФРАМИ */
+  padding: 1.5rem;
   border-bottom: 1px solid #f5f5f5;
-  position: relative;
-}
-
-.service-index {
-  position: absolute;
-  top: 0.5rem;
-  right: 1.5rem;
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: #e0e0e0;
-  line-height: 1;
-  z-index: 0;
-  opacity: 0.9;
 }
 
 .service-title {
   font-size: 1.25rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
-  position: relative;
-  z-index: 1;
 }
 
 .service-details {
@@ -86,7 +68,6 @@ export default {
   flex-direction: column;
 }
 
-/* УДАЛЕНЫ СТИЛИ ДЛЯ ЦЕНЫ */
 .service-description {
   color: #666;
   margin-bottom: 1.5rem;
@@ -115,7 +96,6 @@ export default {
   color: #555;
 }
 
-/* Цветовые акценты для разных карточек */
 .service-0 .service-header { background: #f8f8f8; }
 .service-1 .service-header { background: #f5f5f5; }
 .service-2 .service-header { background: #f0f0f0; }

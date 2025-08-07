@@ -15,7 +15,7 @@
           </p>
           <RouterLink 
             to="/projects" 
-            class="btn btn-light btn-lg px-5 py-3"
+            class="btn-standard btn-white"
           >
             Смотреть проекты
           </RouterLink>
@@ -43,7 +43,6 @@ export default {
   margin: 0;
   padding: 0;
   width: 100%;
-  /* Добавляем отступ сверху для хедера */
   padding-top: 80px;
 }
 
@@ -60,22 +59,6 @@ export default {
 .hero-section .container {
   position: relative;
   z-index: 2;
-}
-
-.hero-section .btn {
-  background-color: #ffffff !important;
-  color: #000000 !important;
-  border-radius: 0;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.hero-section .btn:hover {
-  background-color: #f8f9fa !important;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .logo-large {
@@ -130,7 +113,7 @@ export default {
 
 @media (max-width: 992px) {
   .hero-section {
-    padding-top: 60px; /* Меньший отступ для мобильных */
+    padding-top: 60px;
   }
   
   .hero-title {

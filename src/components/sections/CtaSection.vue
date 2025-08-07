@@ -6,13 +6,13 @@
         <div class="col-12 col-md-10 col-lg-8 text-center">
           <h2 class="cta-title mb-4">Начните создание вашего идеального пространства</h2>
           <p class="cta-text mb-5 mx-auto">
-            Запишитесь на консультацию с нашими дизайнерами
+            Проконсультируйтесь с нашими дизайнерами
           </p>
           <RouterLink 
             to="/contacts" 
-            class="btn btn-light btn-lg px-5 py-3"
+            class="btn-standard btn-white"
           >
-            Обсудить проект
+            Контакты
           </RouterLink>
         </div>
       </div>
@@ -33,22 +33,6 @@ export default {
   color: white;
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
               url('@/assets/images/cta-background.jpg') center/cover no-repeat;
-}
-
-.cta-section .btn {
-  background-color: #ffffff !important;
-  color: #000000 !important;
-  border-radius: 0;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.cta-section .btn:hover {
-  background-color: #f8f9fa !important;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
 
 .cta-title {

@@ -1,3 +1,5 @@
+@import '@/assets/buttons.css';
+
 /* КНОПКИ */
 .btn,
 a.btn,
@@ -63,22 +65,6 @@ a.btn:hover,
 }
 
 /* НАВБАР */
-.navbar-collapse {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 250px;
-  height: 100vh;
-  background-color: #fff;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
-  z-index: 999;
-}
-
-.navbar-collapse.show {
-  transform: translateX(0);
-}
-
 .navbar-toggler {
   border: none !important;
   background: transparent !important;
@@ -168,29 +154,50 @@ nav.navbar {
   }
 }
 
-/* @media (max-width: 992px) {
-  .navbar {
-    padding-right: 1.5rem !important;
-  }
+/* ГЛОБАЛЬНЫЕ СТИЛИ ЗАГОЛОВКОВ СЕКЦИЙ */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
-:root {
-  --scrollbar-width: 0px;
-}
-
-body {
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -0.5px;
   position: relative;
+  display: inline-block;
+  margin-bottom: 1.5rem;
 }
 
-@media (max-width: 576px) {
-  .navbar-collapse {
-    overflow-x: hidden !important;
-    padding-right: 1.5rem !important;
+.section-header .section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: #000;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
   }
   
-  .navbar-collapse .nav-link,
-  .navbar-collapse .header-contact-btn {
-    white-space: normal;
-    word-wrap: break-word;
+  .section-subtitle {
+    font-size: 1rem;
   }
-} */
+  
+  .section-header .section-title::after {
+    height: 2px;
+  }
+}

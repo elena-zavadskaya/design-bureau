@@ -5,7 +5,6 @@
   >
     <div class="container">
       <nav class="navbar navbar-expand-lg">
-        <!-- Логотип -->
         <RouterLink 
           to="/" 
           class="navbar-brand d-flex align-items-center"
@@ -14,7 +13,6 @@
           <span class="brand-name">E.S.S.E.</span>
         </RouterLink>
 
-        <!-- Бургер с улучшенной доступностью -->
         <button 
           class="navbar-toggler border-0 p-0" 
           type="button" 
@@ -26,14 +24,12 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- Обертка для мобильного меню -->
         <div 
           class="mobile-menu-overlay"
           :class="{ 'active': menuOpen }"
           @click="closeMenu"
         ></div>
 
-        <!-- Меню с анимацией -->
         <div 
           id="mobileMenu"
           class="collapse navbar-collapse justify-content-center"
@@ -55,7 +51,6 @@
               </RouterLink>
             </li>
             
-            <!-- Мобильные контакты -->
             <li class="nav-item d-lg-none">
               <RouterLink 
                 to="/contacts" 
@@ -68,7 +63,6 @@
           </ul>
         </div>
         
-        <!-- Десктопные контакты -->
         <div class="d-none d-lg-flex align-items-center">
           <RouterLink 
             to="/contacts" 
@@ -115,7 +109,6 @@ export default {
       isScrolled.value = window.scrollY > 20;
     };
     
-    // Закрытие меню при изменении размера окна
     const handleResize = () => {
       if (window.innerWidth >= 992) closeMenu();
     };
@@ -189,7 +182,6 @@ export default {
   text-decoration: none !important;
 }
 
-/* Важное исправление: всегда показывать navbar-collapse на десктопе */
 .navbar-collapse {
   align-items: center;
 }
@@ -229,7 +221,6 @@ export default {
   color: #fff !important;
 }
 
-/* Анимация подчеркивания */
 .nav-link:not(.active):after {
   content: '';
   position: absolute;
@@ -270,7 +261,6 @@ export default {
   color: #000 !important;
 }
 
-/* Бургер-иконка */
 .navbar-toggler {
   border: none !important;
   background: transparent;
@@ -324,7 +314,6 @@ export default {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Оверлей для мобильного меню */
 .mobile-menu-overlay {
   position: fixed;
   top: 0;
@@ -343,31 +332,48 @@ export default {
   visibility: visible;
 }
 
-@media (min-width: 992px) {
+@media (max-width: 992px) {
   .navbar-collapse {
-    position: static;
-    transform: none !important;
-    width: auto;
-    height: auto;
-    background: transparent;
-    padding: 0;
-    display: flex !important;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 85%;
+    max-width: 320px;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    padding: 80px 0 30px;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    margin-top: 0;
+    box-sizing: border-box;
   }
 
   .navbar-nav {
     flex-direction: row;
     align-items: center;
   }
-}
 
-/*
-@media (max-width: 992px) {
-  header {
-    padding-right: 1.5rem;
-    margin-right: 1.5rem;
+  .navbar-toggler {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 0;
+    z-index: 1001;
+  }
+
+  .navbar-toggler::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
   }
 
   .navbar-collapse {
@@ -379,7 +385,7 @@ export default {
     max-width: 320px;
     background: rgba(0, 0, 0, 0.95);
     z-index: 1000;
-    padding: 80px 25px 30px;
+    padding: 80px 0 30px;
     transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     display: flex;
@@ -388,8 +394,6 @@ export default {
     justify-content: flex-start;
     overflow-y: auto;
     margin-top: 0;
-    padding-right: 1.5rem;
-
   }
 
   .navbar-collapse.show {
@@ -402,7 +406,8 @@ export default {
     align-items: flex-start;
     width: 100%;
     margin-top: 10px;
-    margin-right: 1.5rem;
+    margin-right: 0;
+    padding-left: 0;
   }
 
   .nav-item {
@@ -410,27 +415,16 @@ export default {
     opacity: 0;
     transform: translateY(15px);
     transition: all 0.4s ease;
-    margin-right: 1.5rem;
+    margin-right: 0;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-sizing: border-box;
   }
 
   .navbar-collapse.show .nav-item {
     opacity: 1;
     transform: translateY(0);
-    margin-right: 1.5rem;
   }
-
-  .nav-item {
-    max-width: 500px;
-    padding-left: 3rem;
-    padding-right: 3rem;
-  }
-
-  .navbar-collapse.show .nav-item:nth-child(1) { transition-delay: 0.1s; }
-  .navbar-collapse.show .nav-item:nth-child(2) { transition-delay: 0.15s; }
-  .navbar-collapse.show .nav-item:nth-child(3) { transition-delay: 0.2s; }
-  .navbar-collapse.show .nav-item:nth-child(4) { transition-delay: 0.25s; }
-  .navbar-collapse.show .nav-item:nth-child(5) { transition-delay: 0.3s; }
-  .navbar-collapse.show .nav-item:nth-child(6) { transition-delay: 0.35s; }
 
   .nav-link {
     padding: 15px 0 !important;
@@ -438,43 +432,66 @@ export default {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     width: 100%;
     justify-content: flex-start;
-  }
-
-  .nav-link:after {
-    display: none;
+    box-sizing: border-box;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   .header-contact-btn {
-    width: 100%;
     margin-top: 15px;
     padding: 14px 0 !important;
     font-size: 1rem;
     border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nav-item.d-lg-none {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .nav-item.d-lg-none .header-contact-btn {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    width: calc(100% - 3rem);
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
 @media (max-width: 576px) {
+  .navbar-toggler {
+    right: 20px;
+  }
+
   .navbar-collapse {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 80px 15px 30px !important;
-    padding-right: 1.5rem;
+    padding: 80px 0 30px !important;
   }
   
   .nav-link {
     font-size: 1rem;
     padding: 12px 0 !important;
-    margin-right: 1.5rem;
   }
 
   .nav-item {
-    max-width: 500px;
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    max-width: 100%;
   }
-}*/
+  
+  .nav-item.d-lg-none .header-contact-btn {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    width: calc(100% - 2rem) !important;
+  }
+}
 
-/* Адаптация десктопной версии */
 @media (min-width: 992px) {
   .navbar-collapse {
     position: static;

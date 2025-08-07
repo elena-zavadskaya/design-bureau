@@ -1,0 +1,62 @@
+.btn-standard {
+  display: inline-block;
+  padding: 14px 35px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transform: scale(1);
+  will-change: transform;
+}
+
+.btn-standard {
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
+  transition: 
+    background-color 0.3s ease, 
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.btn-standard:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+  transform: scale(1.05);
+}
+
+.btn-standard.btn-white {
+  background-color: #fff !important;
+  color: #000 !important;
+  border-color: #fff !important;
+  transition: 
+    background-color 0.3s ease, 
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.btn-standard.btn-white:hover {
+  background-color: #fff !important;
+  color: #000 !important;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .btn-standard {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
+  
+  .btn-standard:hover,
+  .btn-standard.btn-white:hover {
+    transform: scale(1.03);
+  }
+}

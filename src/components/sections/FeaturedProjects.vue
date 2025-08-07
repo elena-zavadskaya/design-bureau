@@ -1,13 +1,11 @@
 <template>
   <section class="featured-projects py-6">
     <div class="container">
-      <div class="row mb-5">
-        <div class="col-12 text-center">
-          <h2 class="section-title mb-4">Избранные проекты</h2>
-          <p class="section-subtitle mx-auto">
-            Интерьеры, отражающие индивидуальность заказчиков
-          </p>
-        </div>
+      <div class="section-header">
+        <h2 class="section-title">Избранные проекты</h2>
+        <p class="section-subtitle">
+          Интерьеры, отражающие индивидуальность заказчиков
+        </p>
       </div>
       
       <div class="projects-grid">
@@ -20,7 +18,7 @@
       </div>
       
       <div class="text-center mt-5">
-        <RouterLink to="/projects" class="btn btn-outline-dark">
+        <RouterLink to="/projects" class="btn-standard">
           Все проекты
           <i class="bi bi-arrow-right ms-2"></i>
         </RouterLink>
@@ -50,22 +48,7 @@ export default {
 .featured-projects {
   padding-top: 4rem;
   padding-bottom: 4rem;
-  margin-bottom: 4rem; /* <--- добавлено */
-}
-
-.featured-projects .btn {
-  background-color: transparent !important;
-  color: #212529 !important;
-  border: 1px solid #212529 !important;
-  border-radius: 0;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  padding: 0.5rem 1.5rem;
-}
-
-.featured-projects .btn:hover {
-  background-color: #212529 !important;
-  color: #ffffff !important;
+  margin-bottom: 4rem;
 }
 
 .projects-grid {

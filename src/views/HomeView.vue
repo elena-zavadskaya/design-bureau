@@ -42,25 +42,10 @@ export default {
 </script>
 
 <style scoped>
-.home-view .btn {
-  text-decoration: none !important;
-  position: relative;
-  transition: all 0.3s ease;
-  border: none;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  user-select: none;
-}
-
-
-
-/* Глобальные отступы для всех секций КРОМЕ героя */
 .home-view > section:not(.hero-section) {
   padding: 4rem 0;
 }
 
-/* Герой-секция без отступов */
 .home-view > .hero-section {
   padding: 0 !important;
   margin: 0 !important;
@@ -82,29 +67,5 @@ export default {
   .cta-title {
     font-size: 2rem;
   }
-}
-
-.home-view .btn:hover {
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-/* Убираем анимацию волны */
-.home-view .btn::after {
-  display: none;
-}
-
-/* Специфичные стили для кнопок в секциях */
-.home-view .hero-section .btn {
-  padding: 14px 35px;
-}
-
-.home-view .featured-projects .btn {
-  padding: 8px 20px;
-}
-
-.home-view .cta-section .btn {
-  padding: 14px 35px;
-  font-size: 1rem;
 }
 </style>
