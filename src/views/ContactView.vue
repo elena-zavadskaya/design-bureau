@@ -15,155 +15,104 @@
         </div>
       </div>
 
-      <div class="row gx-5 align-items-stretch">
-        <!-- Объединенный блок контактов -->
-        <div class="col-12 col-lg-6 d-flex flex-column mb-5 mb-lg-0">
+      <div class="row gx-4 gx-lg-5 align-items-stretch">
+        <!-- Блок Design & Decoration -->
+        <div class="col-12 col-md-6 d-flex flex-column mb-4 mb-md-0">
           <div class="contact-block p-4 p-lg-5 position-relative h-100">
             <div class="decor-corner top-left"></div>
             <div class="decor-corner top-right"></div>
             <div class="decor-corner bottom-left"></div>
             <div class="decor-corner bottom-right"></div>
             
-            <!-- Подраздел Design & Decoration -->
-            <div class="mb-5">
-              <h2 class="h3 fw-light mb-4 position-relative">
-                <span class="brand-subtitle">E.S.S.E.</span> Design & Decoration
-              </h2>
-              
-              <ul class="contact-list list-unstyled">
-                <li class="mb-4 d-flex align-items-start">
-                  <div class="contact-icon bg-dark d-flex align-items-center justify-content-center">
-                    <i class="bi bi-telephone text-white"></i>
-                  </div>
-                  <div class="contact-detail">
-                    <div class="contact-label">Телефон</div>
-                    <div>+7 915 225-43-43</div>
-                  </div>
-                </li>
-                
-                <li class="mb-4 d-flex align-items-start">
-                  <div class="contact-icon bg-dark d-flex align-items-center justify-content-center">
-                    <i class="bi bi-envelope text-white"></i>
-                  </div>
-                  <div class="contact-detail">
-                    <div class="contact-label">Email</div>
-                    <div>office@esse.com.ru</div>
-                  </div>
-                </li>
-                
-                <li class="d-flex align-items-start">
-                  <div class="contact-icon bg-dark d-flex align-items-center justify-content-center">
-                    <i class="bi bi-geo-alt text-white"></i>
-                  </div>
-                  <div class="contact-detail">
-                    <div class="contact-label">Адрес</div>
-                    <div>
-                      Зубовский бульвар, дом 16-20, стр. 1,<br>
-                      этаж 1, помещение XIV, комната 1<br>
-                      Москва, 119034
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
+            <h2 class="h3 fw-light mb-4 position-relative">
+              <span class="brand-subtitle">E.S.S.E.</span> Design & Decoration
+            </h2>
             
-            <!-- Подраздел Art & Poster -->
-            <div>
-              <h2 class="h3 fw-light mb-4 position-relative">
-                <span class="brand-subtitle">E.S.S.E.</span> Art & Poster
-              </h2>
+            <ul class="contact-list list-unstyled">
+              <li class="mb-4 d-flex align-items-start">
+                <div class="contact-icon bg-dark d-flex align-items-center justify-content-center">
+                  <i class="bi bi-telephone text-white"></i>
+                </div>
+                <div class="contact-detail">
+                  <div class="contact-label">Телефон</div>
+                  <div class="copyable" @click="copyToClipboard('+79152254343')">+7 915 225-43-43</div>
+                </div>
+              </li>
               
-              <ul class="contact-list list-unstyled">
-                <li class="mb-4 d-flex align-items-start">
-                  <div class="contact-icon bg-dark d-flex align-items-center justify-content-center">
-                    <i class="bi bi-telephone text-white"></i>
+              <li class="mb-4 d-flex align-items-start">
+                <div class="contact-icon bg-dark d-flex align-items-center justify-content-center">
+                  <i class="bi bi-envelope text-white"></i>
+                </div>
+                <div class="contact-detail">
+                  <div class="contact-label">Email</div>
+                  <div class="copyable" @click="copyToClipboard('office@esse.com.ru')">office@esse.com.ru</div>
+                </div>
+              </li>
+              
+              <li class="d-flex align-items-start">
+                <div class="contact-icon bg-dark d-flex align-items-center justify-content-center">
+                  <i class="bi bi-geo-alt text-white"></i>
+                </div>
+                <div class="contact-detail">
+                  <div class="contact-label">Адрес</div>
+                  <div class="copyable" @click="copyToClipboard('Зубовский бульвар, дом 16-20, стр. 1, этаж 1, помещение XIV, комната 1, Москва, 119034')">
+                    Зубовский бульвар, дом 16-20, стр. 1,<br>
+                    этаж 1, помещение XIV, комната 1<br>
+                    Москва, 119034
                   </div>
-                  <div class="contact-detail">
-                    <div class="contact-label">Телефон</div>
-                    <div>+7 915 225-43-43</div>
-                  </div>
-                </li>
-                
-                <li class="d-flex align-items-start">
-                  <div class="contact-icon bg-dark d-flex align-items-center justify-content-center">
-                    <i class="bi bi-instagram text-white"></i>
-                  </div>
-                  <div class="contact-detail">
-                    <div class="contact-label">Instagram</div>
-                    <div>
-                      <a href="https://instagram.com/esse_art_poster" target="_blank" class="social-link">@esse_art_poster</a><br>
-                      <a href="https://instagram.com/esse_poster_shop" target="_blank" class="social-link">@esse_poster_shop</a> (каталог)
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <!-- Форма обратной связи -->
-        <div class="col-12 col-lg-6 d-flex flex-column">
-          <div class="contact-form p-4 p-lg-5 position-relative h-100">
-            <div class="form-decor-line"></div>
+        <!-- Блок Art & Poster -->
+        <div class="col-12 col-md-6 d-flex flex-column">
+          <div class="contact-block p-4 p-lg-5 position-relative h-100">
+            <div class="decor-corner top-left"></div>
+            <div class="decor-corner top-right"></div>
+            <div class="decor-corner bottom-left"></div>
+            <div class="decor-corner bottom-right"></div>
             
             <h2 class="h3 fw-light mb-4 position-relative">
-              <span class="title-text">Напишите нам</span>
-              <span class="title-line"></span>
+              <span class="brand-subtitle">E.S.S.E.</span> Art & Poster
             </h2>
             
-            <form @submit.prevent="submitForm" class="wide-inputs">
-              <div class="mb-4">
-                <input 
-                  type="text" 
-                  class="form-control border-0 border-bottom rounded-0 bg-transparent px-0" 
-                  v-model="form.name"
-                  required
-                  aria-label="Ваше имя"
-                  placeholder="Ваше имя"
-                >
-              </div>
+            <ul class="contact-list list-unstyled">
+              <li class="mb-4 d-flex align-items-start">
+                <div class="contact-icon bg-dark d-flex align-items-center justify-content-center">
+                  <i class="bi bi-telephone text-white"></i>
+                </div>
+                <div class="contact-detail">
+                  <div class="contact-label">Телефон</div>
+                  <div class="copyable" @click="copyToClipboard('+79152254343')">+7 915 225-43-43</div>
+                </div>
+              </li>
               
-              <div class="mb-4">
-                <input 
-                  type="email" 
-                  class="form-control border-0 border-bottom rounded-0 bg-transparent px-0" 
-                  v-model="form.email"
-                  required
-                  aria-label="Email"
-                  placeholder="Email"
-                >
-              </div>
-              
-              <div class="mb-4">
-                <input 
-                  type="tel" 
-                  class="form-control border-0 border-bottom rounded-0 bg-transparent px-0" 
-                  v-model="form.phone"
-                  aria-label="Телефон"
-                  placeholder="Телефон"
-                >
-              </div>
-              
-              <div class="mb-4">
-                <textarea 
-                  class="form-control border-0 border-bottom rounded-0 bg-transparent px-0" 
-                  rows="4" 
-                  v-model="form.message"
-                  required
-                  aria-label="Сообщение"
-                  placeholder="Сообщение"
-                ></textarea>
-              </div>
-              
-              <button type="submit" class="btn btn-dark rounded-0 px-4 py-3 position-relative">
-                <span class="btn-text">Отправить</span>
-                <i class="bi bi-arrow-right ms-2"></i>
-              </button>
-            </form>
+              <li class="d-flex align-items-start">
+                <div class="contact-icon bg-dark d-flex align-items-center justify-content-center">
+                  <i class="bi bi-instagram text-white"></i>
+                </div>
+                <div class="contact-detail">
+                  <div class="contact-label">Instagram</div>
+                  <div>
+                    <span class="copyable social-link" @click="copyToClipboard('@esse_art_poster')">@esse_art_poster</span><br>
+                    <span class="copyable social-link" @click="copyToClipboard('@esse_poster_shop')">@esse_poster_shop</span> (каталог)
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Toast уведомление -->
+    <transition name="fade">
+      <div v-if="showToast" class="copied-toast">
+        <i class="bi bi-check-circle-fill"></i> Скопировано в буфер обмена
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -172,19 +121,31 @@ export default {
   name: 'ContactsPage',
   data() {
     return {
-      form: {
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
-      }
+      showToast: false
     }
   },
   methods: {
-    submitForm() {
-      console.log('Форма отправлена:', this.form);
-      alert('Сообщение отправлено! Мы свяжемся с вами в ближайшее время.');
-      this.form = { name: '', email: '', phone: '', message: '' };
+    async copyToClipboard(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        this.showToastMessage();
+      } catch (err) {
+        console.error('Ошибка при копировании: ', err);
+        // Fallback для браузеров без поддержки Clipboard API
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        this.showToastMessage();
+      }
+    },
+    showToastMessage() {
+      this.showToast = true;
+      setTimeout(() => {
+        this.showToast = false;
+      }, 3000);
     }
   }
 }
@@ -200,7 +161,6 @@ export default {
   min-height: 63.5vh;
 }
 
-/* Декоративные элементы */
 .decor-circle {
   position: absolute;
   border-radius: 50%;
@@ -223,7 +183,6 @@ export default {
   left: -100px;
 }
 
-/* Заголовки */
 .title-text {
   display: inline-block;
   padding-bottom: 15px;
@@ -246,7 +205,6 @@ export default {
   letter-spacing: 1px;
 }
 
-/* Контактные блоки */
 .contact-block {
   background-color: #fff;
   border: 1px solid rgba(0,0,0,0.05);
@@ -305,7 +263,6 @@ export default {
   border-top: none;
 }
 
-/* Элементы контактов */
 .contact-icon {
   width: 40px;
   height: 40px;
@@ -324,6 +281,15 @@ export default {
   letter-spacing: 1px;
   color: #666;
   margin-bottom: 2px;
+}
+
+.copyable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.copyable:hover {
+  color: #444;
 }
 
 .social-link {
@@ -352,97 +318,15 @@ export default {
   width: 100%;
 }
 
-/* Форма */
-.contact-form {
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.05);
-  transition: all 0.4s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-form:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.form-decor-line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #000, #000 50%, transparent 50%, transparent);
-  background-size: 20px 100%;
-}
-
-.form-control {
-  padding: 1rem 0;
-  border-radius: 0;
-  border-color: #ddd;
-  transition: all 0.3s ease;
-  box-shadow: none !important;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.form-control:focus {
-  border-color: #000;
-  outline: none;
-}
-
-.btn-dark {
-  background-color: #000;
-  color: #fff;
-  border-radius: 0;
-  border: none;
-  padding: 0.75rem 2rem;
-  font-weight: 400;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  position: relative;
-  overflow-x: hidden;
-  margin-left: 1.5rem;
-}
-
-.btn-dark:hover {
-  background-color: #333;
-}
-
-.btn-dark i {
-  transition: transform 0.3s ease;
-}
-
-.btn-dark:hover i {
-  transform: translateX(5px);
-}
-
-/* Выравнивание высоты блоков на больших экранах */
 @media (min-width: 992px) {
-  .contact-block,
-  .contact-form {
+  .contact-block {
     height: 100%;
   }
 }
 
-/* Адаптивные стили */
 @media (max-width: 991px) {
   .contacts-page {
     padding-right: 1.5rem;
-  }
-
-  .contact-form .form-control {
-    width: calc(100% - 2rem);
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  .btn-dark {
-    margin-left: 1rem;
   }
 }
 
@@ -452,54 +336,42 @@ export default {
     padding-bottom: 4rem;
   }
   
-  .contact-block, .contact-form {
+  .contact-block {
     padding: 2rem !important;
   }
   
   .decor-circle {
     display: none;
   }
-
-  .contact-form .form-control {
-    width: calc(100% - 2rem);
-    margin-left: 1rem;
-    margin-right: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  .btn-dark {
-    margin-left: 1rem;
-  }
-  
-  /* Убираем flex-структуру на мобильных */
-  .col-12.d-flex {
-    display: block !important;
-  }
 }
 
-/* Дополнительные стили для объединенного блока */
-.contact-block > div:first-child {
-  margin-bottom: 3rem;
+.copied-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Улучшение отображения формы на всех экранах */
-.wide-inputs .form-control {
-  width: calc(100% - 3rem);
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+.copied-toast i {
+  font-size: 1.2rem;
 }
 
-@media (max-width: 991px) {
-  .wide-inputs .form-control {
-    width: calc(100% - 2rem);
-    margin-left: 1rem;
-    margin-right: 1rem;
-  }
+/* Анимации для toast */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s;
 }
-
-/* Гарантируем, что кнопка формы не выходит за границы */
-form.wide-inputs button {
-  margin-top: 1rem;
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
