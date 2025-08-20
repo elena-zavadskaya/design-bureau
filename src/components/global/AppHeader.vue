@@ -177,7 +177,7 @@ export default {
 .brand-name {
   font-weight: 400;
   letter-spacing: 1px;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: #fff;
   text-decoration: none !important;
 }
