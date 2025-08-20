@@ -127,6 +127,7 @@
     <!-- Всплывающее уведомление -->
     <transition name="fade">
       <div v-if="copiedMessage" class="copied-toast">
+        <i class="bi bi-check-circle-fill"></i>
         {{ copiedMessage }}
       </div>
     </transition>
@@ -317,29 +318,6 @@ export default {
 
 small {
   font-size: 0.85rem;
-}
-
-/* Всплывающее уведомление */
-.copied-toast {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: rgba(0, 0, 0, 0.85);
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  z-index: 9999;
-}
-
-/* Анимация появления/исчезновения */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.4s;
-}
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 
 @media (max-width: 768px) {

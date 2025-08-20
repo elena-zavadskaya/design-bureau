@@ -57,7 +57,7 @@
               <div class="collection-header">
                 <h2>Эстампы советских художников</h2>
               </div>
-              <p>Вторая половина XX века. Это удивительные, ни на что не похожие работы, которые мы открыли для себя и с удовольствием открываем для вас.</p>
+              <p>Вторая половина XX века. Это удивительные, ни на что не похожие работа, которые мы открыли для себя и с удовольствием открываем для вас.</p>
             </div>
             
             <div class="collection-image right">
@@ -98,42 +98,105 @@
             <p>Для уточнения ассортимента и по вопросам приобретения оставьте, пожалуйста, заявку:</p>
             
             <div class="contact-methods">
-              <a href="tel:+79152254343" class="contact-link">
+              <div class="contact-link" @click="copyPhone">
                 <div class="contact-info">
                   <div class="contact-label">Телефон</div>
                   <div class="contact-value">+7 915 225-43-43</div>
                 </div>
-              </a>
+              </div>
               
-              <a href="https://instagram.com/esse_art_poster" target="_blank" class="contact-link">
+              <div class="contact-link" @click="copyInstagram('esse_art_poster')">
                 <div class="contact-info">
                   <div class="contact-label">Инстаграм</div>
                   <div class="contact-value">@esse_art_poster</div>
                 </div>
-              </a>
+              </div>
               
-              <a href="https://instagram.com/esse_poster_shop" target="_blank" class="contact-link">
+              <div class="contact-link" @click="copyInstagram('esse_poster_shop')">
                 <div class="contact-info">
                   <div class="contact-label">Каталог</div>
                   <div class="contact-value">@esse_poster_shop</div>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Уведомление о копировании (используем глобальные стили) -->
+    <transition name="fade">
+      <div v-if="showNotification" class="copied-toast">
+        <i class="bi bi-check-circle-fill"></i>
+        <span>{{ notificationMessage }}</span>
+      </div>
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
   name: 'GalleryView',
+  data() {
+    return {
+      showNotification: false,
+      notificationMessage: '',
+      notificationTimer: null
+    }
+  },
+  methods: {
+    // Копирование номера телефона
+    copyPhone() {
+      const phone = '+7 915 225-43-43'
+      this.copyToClipboard(phone)
+      this.showNotificationMessage('Номер телефона скопирован')
+    },
+    
+    // Копирование ссылки на Instagram
+    copyInstagram(account) {
+      let url = ''
+      if (account === 'esse_art_poster') {
+        url = 'https://www.instagram.com/esse_art_poster?igsh=ZjQ3aGZsdThpYjgz'
+      } else if (account === 'esse_poster_shop') {
+        url = 'https://www.instagram.com/esse_poster_shop?igsh=dHpvb3FjNzd1cDRz'
+      }
+      
+      this.copyToClipboard(url)
+      this.showNotificationMessage(`Ссылка на ${account} скопирована`)
+    },
+    
+    // Общая функция копирования в буфер обмена
+    copyToClipboard(text) {
+      navigator.clipboard.writeText(text).catch(() => {
+        // Fallback для старых браузеров
+        const textArea = document.createElement('textarea')
+        textArea.value = text
+        document.body.appendChild(textArea)
+        textArea.select()
+        document.execCommand('copy')
+        document.body.removeChild(textArea)
+      })
+    },
+    
+    // Показать уведомление
+    showNotificationMessage(message) {
+      this.notificationMessage = message
+      this.showNotification = true
+      
+      // Скрыть уведомление через 3 секунды
+      clearTimeout(this.notificationTimer)
+      this.notificationTimer = setTimeout(() => {
+        this.showNotification = false
+      }, 3000)
+    }
+  },
+  beforeUnmount() {
+    clearTimeout(this.notificationTimer)
+  }
 }
 </script>
 
 <style scoped>
-/* Общие стили страницы */
 .gallery-content {
   padding-bottom: 3rem;
 }
@@ -151,7 +214,6 @@ export default {
   padding: 0 1.5rem;
 }
 
-/* Заголовок с фоновым изображением */
 .page-header-bg {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
                   url('@/assets/images/gallery/ESS-HEADER-01.JPG');
@@ -196,7 +258,6 @@ export default {
   background: white;
 }
 
-/* Общий класс для всех изображений */
 .gallery-image-container {
   position: relative;
   width: 100%;
@@ -214,7 +275,7 @@ export default {
   width: 100%;
   height: auto;
   display: block;
-  aspect-ratio: 16/9; /* Соотношение сторон */
+  aspect-ratio: 16/9;
   object-fit: cover;
   transition: all 0.5s ease;
 }
@@ -223,7 +284,6 @@ export default {
   transform: scale(1.03);
 }
 
-/* Введение */
 .intro-section {
   display: flex;
   gap: 3rem;
@@ -270,7 +330,6 @@ export default {
   background: #000;
 }
 
-/* Коллекции */
 .collections {
   margin-bottom: 4rem;
 }
@@ -324,7 +383,6 @@ export default {
   padding-left: 1.5rem;
 }
 
-/* Индивидуальный подбор */
 .custom-selection {
   display: flex;
   gap: 3rem;
@@ -367,6 +425,7 @@ export default {
   color: inherit;
   transition: all 0.3s ease;
   position: relative;
+  cursor: pointer;
 }
 
 .contact-link::after {
@@ -418,7 +477,6 @@ export default {
   color: #555;
 }
 
-/* Адаптивность */
 @media (max-width: 992px) {
   .gallery-content {
     padding-right: 3rem;
@@ -436,7 +494,7 @@ export default {
   }
   
   .gallery-image {
-    aspect-ratio: 4/3; /* Более квадратное соотношение на планшетах */
+    aspect-ratio: 4/3;
   }
 }
 
@@ -480,16 +538,14 @@ export default {
   }
   
   .gallery-image {
-    aspect-ratio: 1/1; /* Квадратное соотношение на мобильных */
+    aspect-ratio: 1/1;
   }
   
-  /* Убедимся, что изображения не выходят за пределы экрана */
   .gallery-image-container {
     max-width: 100%;
     overflow: hidden;
   }
   
-  /* Увеличим отступы для лучшей читаемости */
   .intro-section,
   .collection-card,
   .custom-selection {
