@@ -79,12 +79,7 @@
             <div class="position">
               <span v-for="(pos, index) in positions.alexander" :key="index">{{ pos }}</span>
             </div>
-            <div class="education">
-              <h3>Образование:</h3>
-              <ul>
-                <li v-for="(edu, index) in education.alexander" :key="index">{{ edu }}</li>
-              </ul>
-            </div>
+            <!-- Убрана секция образования для Александра Журавлёва -->
           </div>
         </div>
       </div>
@@ -136,7 +131,6 @@ export default {
   background: #fff;
 }
 
-/* Hero секция */
 .team-hero {
   position: relative;
   height: 60vh;
@@ -170,14 +164,12 @@ export default {
   line-height: 1.6;
 }
 
-/* Основной контейнер */
 .team-container {
   max-width: 1200px;
   margin: 4rem auto;
   padding: 0 2rem;
 }
 
-/* Сетка команды */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -185,7 +177,6 @@ export default {
   margin-bottom: 4rem;
 }
 
-/* Карточка сотрудника */
 .team-card {
   display: flex;
   gap: 2rem;
@@ -276,7 +267,6 @@ export default {
   list-style-type: disc;
 }
 
-/* Цитата */
 .team-quote {
   max-width: 800px;
   margin: 0 auto;
@@ -318,7 +308,6 @@ export default {
   z-index: 1;
 }
 
-/* Адаптивность */
 @media (max-width: 1024px) {
   .team-grid {
     grid-template-columns: 1fr;
