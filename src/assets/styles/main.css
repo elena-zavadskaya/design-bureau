@@ -251,3 +251,78 @@ nav.navbar {
     padding: 12px 16px;
   }
 }
+
+/* main.css - добавленные стили для хедера */
+.hero-header-bg {
+  background-size: cover;
+  background-position: center;
+  padding: 12rem 0;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 4rem;
+}
+
+.hero-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  color: white;
+  padding: 0 1rem;
+}
+
+.hero-header h1 {
+  font-size: 2.8rem;
+  font-weight: 600; /* Изменено с 300 на 600 (жирнее) */
+  letter-spacing: -0.5px;
+  margin-bottom: 1.5rem;
+  /* Убрано padding-bottom и position: relative */
+}
+
+/* Убрано правило .hero-header h1::after (линия подчеркивания) */
+
+.hero-intro-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 2rem auto 0;
+  font-weight: 300;
+  position: relative;
+  padding-top: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-intro-text::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+  .hero-header-bg {
+    padding: 5rem 0;
+  }
+  
+  .hero-header h1 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-header-bg {
+    padding: 4rem 0;
+  }
+  
+  .hero-header h1 {
+    font-size: 1.8rem;
+  }
+}

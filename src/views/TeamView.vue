@@ -1,10 +1,10 @@
 <template>
   <div class="team-page">
-    <!-- Hero-секция -->
-    <section class="team-hero">
-      <div class="hero-content">
+    <!-- Hero-секция с новым стилем -->
+    <section class="hero-header-bg" :style="{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${headerBg})` }">
+      <div class="hero-header">
         <h1>Наша команда</h1>
-        <p>Профессионалы, создающие пространства с характером</p>
+        <p class="hero-intro-text">Профессионалы, создающие пространства с характером</p>
       </div>
     </section>
 
@@ -118,7 +118,8 @@ export default {
         oleg: [
           "Московский государственный строительный университет"
         ]
-      }
+      },
+      headerBg: '/images/team/team-hero.jpg'
     }
   }
 }
@@ -129,39 +130,6 @@ export default {
   font-family: 'Inter', 'Helvetica Neue', sans-serif;
   color: #1a1b22;
   background: #fff;
-}
-
-.team-hero {
-  position: relative;
-  height: 60vh;
-  background: 
-  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-  url('/images/team/team-hero.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-}
-
-.hero-content {
-  max-width: 800px;
-  padding: 0 2rem;
-}
-
-.hero-content h1 {
-  font-size: 3.5rem;
-  font-weight: 300;
-  margin-bottom: 1rem;
-  letter-spacing: -0.5px;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  font-weight: 300;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
 }
 
 .team-container {
@@ -326,14 +294,6 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero-content p {
-    font-size: 1rem;
-  }
-  
   .team-container {
     padding: 0 1.5rem;
   }
@@ -356,12 +316,8 @@ export default {
 }
 
 @media (max-width: 480px) {
-  .team-hero {
-    height: 50vh;
-  }
-  
-  .hero-content h1 {
-    font-size: 2rem;
+  .team-container {
+    padding: 0 1rem;
   }
   
   .member-photo {

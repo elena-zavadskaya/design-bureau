@@ -1,8 +1,8 @@
 <template>
   <div class="gallery-page">
-    <!-- Заголовок с фоновым изображением галереи -->
-    <section class="page-header-bg">
-      <div class="page-header">
+    <!-- Заголовок с новым стилем из main.css -->
+    <section class="hero-header-bg" :style="{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${headerBg})` }">
+      <div class="hero-header">
         <h1>Галерея E.S.S.E. Art & Poster</h1>
       </div>
     </section>
@@ -124,7 +124,7 @@
       </div>
     </section>
 
-    <!-- Уведомление о копировании (используем глобальные стили) -->
+    <!-- Уведомление о копировании -->
     <transition name="fade">
       <div v-if="showNotification" class="copied-toast">
         <i class="bi bi-check-circle-fill"></i>
@@ -135,24 +135,25 @@
 </template>
 
 <script>
+import headerBg from '@/assets/images/gallery/ESS-HEADER-01.JPG';
+
 export default {
   name: 'GalleryView',
   data() {
     return {
       showNotification: false,
       notificationMessage: '',
-      notificationTimer: null
+      notificationTimer: null,
+      headerBg
     }
   },
   methods: {
-    // Копирование номера телефона
     copyPhone() {
       const phone = '+7 915 225-43-43'
       this.copyToClipboard(phone)
       this.showNotificationMessage('Номер телефона скопирован')
     },
     
-    // Копирование ссылки на Instagram
     copyInstagram(account) {
       let url = ''
       if (account === 'esse_art_poster') {
@@ -165,10 +166,8 @@ export default {
       this.showNotificationMessage(`Ссылка на ${account} скопирована`)
     },
     
-    // Общая функция копирования в буфер обмена
     copyToClipboard(text) {
       navigator.clipboard.writeText(text).catch(() => {
-        // Fallback для старых браузеров
         const textArea = document.createElement('textarea')
         textArea.value = text
         document.body.appendChild(textArea)
@@ -178,12 +177,10 @@ export default {
       })
     },
     
-    // Показать уведомление
     showNotificationMessage(message) {
       this.notificationMessage = message
       this.showNotification = true
       
-      // Скрыть уведомление через 3 секунды
       clearTimeout(this.notificationTimer)
       this.notificationTimer = setTimeout(() => {
         this.showNotification = false
@@ -212,50 +209,6 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
-}
-
-.page-header-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                  url('@/assets/images/gallery/ESS-HEADER-01.JPG');
-  background-size: cover;
-  background-position: center;
-  height: 65vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 4rem;
-}
-
-.page-header {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-  color: white;
-  padding: 0 1rem;
-  width: 100%;
-}
-
-.page-header h1 {
-  font-size: 2.8rem;
-  font-weight: 300;
-  letter-spacing: -0.5px;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  position: relative;
-}
-
-.page-header h1::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 2px;
-  background: white;
 }
 
 .gallery-image-container {
@@ -378,7 +331,7 @@ export default {
 
 .collection-card p {
   line-height: 1.8;
-  color: #444;
+  color: 444;
   font-weight: 300;
   padding-left: 1.5rem;
 }
@@ -502,14 +455,6 @@ export default {
   .gallery-content {
     padding-right: 3rem;
   }
-
-  .page-header-bg {
-    height: 50vh;
-  }
-  
-  .page-header h1 {
-    font-size: 2.2rem;
-  }
   
   .minimalist-list {
     grid-template-columns: 1fr;
@@ -519,14 +464,6 @@ export default {
 @media (max-width: 480px) {
   .gallery-content {
     padding-right: 3rem;
-  }
-
-  .page-header-bg {
-    height: 40vh;
-  }
-  
-  .page-header h1 {
-    font-size: 1.8rem;
   }
   
   .contact-methods {

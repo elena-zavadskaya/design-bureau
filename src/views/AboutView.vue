@@ -1,24 +1,12 @@
 <template>
   <section class="about-page">
-    <!-- Hero (без отступов) -->
-    <div class="hero-section">
-      <img
-        src="/images/about/main.jpg"
-        alt="Интерьер от E.S.S.E."
-        class="hero-image"
-        loading="eager"
-      />
-      <div class="hero-overlay" role="banner" aria-label="Вступительный блок">
-        <transition name="fade" appear>
-          <div>
-            <h1 class="hero-title">
-              E.S.S.E. <span class="hero-em">Design & Decoration</span>
-            </h1>
-            <p class="hero-subtitle">Дизайн, вдохновлённый культурой и личностью</p>
-          </div>
-        </transition>
+    <!-- Hero с новым стилем из main.css -->
+    <section class="hero-header-bg" :style="{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/images/about/main.jpg')` }">
+      <div class="hero-header">
+        <h1>E.S.S.E. <span class="hero-em">Design & Decoration</span></h1>
+        <p class="hero-intro-text">Дизайн, вдохновлённый культурой и личностью</p>
       </div>
-    </div>
+    </section>
 
     <!-- Content (с отступами по бокам) -->
     <div class="content container">
@@ -181,42 +169,6 @@ export default {
   background: #ffffff url('/images/about/texture-light.png') repeat;
 }
 
-.hero-section {
-  position: relative;
-  height: 65vh;
-  overflow: hidden;
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(50%);
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 50%;
-  left: 5%;
-  transform: translateY(-50%);
-  color: #fff;
-  max-width: 90%;
-}
-
-.hero-title {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-}
-
-.hero-em {
-  font-weight: 300;
-}
-
-.hero-subtitle {
-  font-size: 1.2rem;
-  font-weight: 300;
-}
-
 .container {
   max-width: 1140px;
   margin: 0 auto;
@@ -317,7 +269,6 @@ export default {
   border-radius: 0;
 }
 
-/* Правильное оформление блока Философия */
 .philosophy-section {
   color: #000;
   padding: 4rem 0;
@@ -429,7 +380,6 @@ export default {
   line-height: 1.5;
 }
 
-/* ОБНОВЛЕННЫЕ СТИЛИ ДЛЯ БЛОКА ОСНОВАТЕЛИ */
 .founders-section {
   position: relative;
 }
@@ -455,7 +405,7 @@ export default {
 .founders-content {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Вертикальное центрирование контента */
+  justify-content: center;
 }
 
 .founders-text {
@@ -463,36 +413,38 @@ export default {
   color: #333;
 }
 
-/* Десктопная версия - фото и контент в ряд с вертикальным центрированием */
+.hero-em {
+  font-weight: 300;
+}
+
 @media (min-width: 769px) {
   .founders-section h2 {
     text-align: left;
-    margin-bottom: 0.5rem; /* Уменьшаем отступ для компактности */
+    margin-bottom: 0.5rem;
   }
   
   .founders-grid {
     flex-direction: row;
-    align-items: center; /* Вертикальное центрирование всего блока */
+    align-items: center;
     gap: 3rem;
   }
   
   .founders-photo {
     flex: 0 0 45%;
     max-width: 45%;
-    height: 100%; /* Занимает всю доступную высоту */
-    min-height: 400px; /* Минимальная высота для фотографии */
+    height: 100%;
+    min-height: 400px;
     object-fit: cover;
   }
   
   .founders-content {
     flex: 1;
     text-align: left;
-    height: 100%; /* Занимает всю доступную высоту */
-    padding: 2rem 0; /* Отступы сверху и снизу для центрирования */
+    height: 100%;
+    padding: 2rem 0;
   }
 }
 
-/* Анимации и медиа-запросы */
 .fade-enter-active {
   transition: all 0.8s ease;
 }
@@ -506,14 +458,6 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.2rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-
   .text-image-section {
     flex-direction: column !important;
   }
@@ -539,7 +483,6 @@ export default {
     padding: 0 1.5rem;
   }
   
-  /* Для мобильных: заголовок над всем блоком */
   .founders-section h2 {
     margin-bottom: 1.5rem;
   }

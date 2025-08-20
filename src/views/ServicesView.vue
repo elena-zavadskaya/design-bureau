@@ -1,10 +1,10 @@
 <template>
   <div class="services-page">
     <!-- Заголовок страницы -->
-    <section class="page-header-bg">
-      <div class="page-header">
+    <section class="hero-header-bg" :style="{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${headerBg})` }">
+      <div class="hero-header">
         <h1>Услуги</h1>
-        <p class="intro-text">
+        <p class="hero-intro-text">
           {{ servicesData.intro }}
         </p>
       </div>
@@ -107,7 +107,6 @@ export default {
 </script>
 
 <style scoped>
-/* Общие стили страницы */
 .services-page {
   max-width: 1200px;
   margin: 0 auto;
@@ -117,74 +116,6 @@ export default {
   background: #fff;
 }
 
-/* Заголовок с фоновым изображением на всю ширину */
-.page-header-bg {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                    url('@/assets/images/services-header-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  padding: 12rem 0;
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 4rem;
-}
-
-.page-header {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-  color: white;
-  padding: 0 1rem;
-}
-
-.page-header h1 {
-  font-size: 2.8rem;
-  font-weight: 300;
-  letter-spacing: -0.5px;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  position: relative;
-}
-
-.page-header h1::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 2px;
-  background: white;
-}
-
-.intro-text {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  max-width: 800px;
-  margin: 2rem auto 0;
-  font-weight: 300;
-  position: relative;
-  padding-top: 2rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.intro-text::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.7);
-}
-
-/* Основные услуги */
 .services-container {
   display: grid;
   gap: 3rem;
@@ -476,7 +407,6 @@ export default {
   padding: 1.5rem;
 }
 
-/* Анимации и эффекты */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -492,20 +422,7 @@ export default {
 .service-card:nth-child(3) { animation-delay: 0.3s; }
 .service-card:nth-child(4) { animation-delay: 0.4s; }
 
-/* Адаптивность */
 @media (max-width: 768px) {
-  .page-header-bg {
-    padding: 5rem 0;
-  }
-  
-  .page-header {
-    padding: 0 1.5rem;
-  }
-  
-  .page-header h1 {
-    font-size: 2.2rem;
-  }
-
   .service-header {
     flex-direction: column;
     align-items: flex-start;
@@ -526,18 +443,6 @@ export default {
 }
 
 @media (max-width: 480px) {
-  .page-header-bg {
-    padding: 4rem 0;
-  }
-  
-  .page-header {
-    padding: 0 1rem;
-  }
-  
-  .page-header h1 {
-    font-size: 1.8rem;
-  }
-  
   .service-card {
     padding: 1.5rem;
   }
