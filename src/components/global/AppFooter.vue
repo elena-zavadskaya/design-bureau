@@ -13,15 +13,34 @@
             Профессиональный подход к каждому проекту.
           </p>
           <div class="social-links">
-            <a href="#" class="text-white me-3" aria-label="Instagram">
+            <!-- Instagram -->
+            <a 
+              href="#"
+              class="text-white me-3"
+              aria-label="Instagram"
+              @click.prevent="copyToClipboard('https://www.instagram.com/esse_art_poster?igsh=ZjQ3aGZsdThpYjgz')"
+            >
               <i class="bi bi-instagram"></i>
             </a>
-            <a href="#" class="text-white me-3" aria-label="Facebook">
-              <i class="bi bi-facebook"></i>
+
+            <!-- Phone -->
+            <a 
+              href="#"
+              class="text-white me-3"
+              aria-label="Phone"
+              @click.prevent="copyToClipboard('+7 915 225-43-43')"
+            >
+              <i class="bi bi-telephone"></i>
             </a>
-            <a href="#" class="text-white" aria-label="Houzz">
+
+            <!-- Home -->
+            <RouterLink 
+              to="/" 
+              class="text-white"
+              aria-label="Главная"
+            >
               <i class="bi bi-house-door"></i>
-            </a>
+            </RouterLink>
           </div>
         </div>
         
@@ -61,19 +80,30 @@
           <ul class="footer-contacts list-unstyled ps-0">
             <li class="d-flex mb-3">
               <i class="bi bi-telephone me-3"></i>
-              <a href="tel:+79152254343" class="text-white footer-link">
+              <a 
+                href="tel:+79152254343" 
+                class="text-white footer-link"
+                @click.prevent="copyToClipboard('+7 915 225-43-43')"
+              >
                 +7 915 225-43-43
               </a>
             </li>
             <li class="d-flex mb-3">
               <i class="bi bi-envelope me-3"></i>
-              <a href="mailto:office@esse.com.ru" class="text-white footer-link">
+              <a 
+                href="mailto:office@esse.com.ru" 
+                class="text-white footer-link"
+                @click.prevent="copyToClipboard('office@esse.com.ru')"
+              >
                 office@esse.com.ru
               </a>
             </li>
             <li class="d-flex">
               <i class="bi bi-geo-alt me-3"></i>
-              <span class="text-white footer-address">
+              <span 
+                class="text-white footer-address"
+                @click="copyToClipboard('Зубовский бульвар, дом 16-20, стр. 1, этаж 1, помещение XIV, комната 1, Москва, 119034')"
+              >
                 Зубовский бульвар, дом 16-20, стр. 1, этаж 1, помещение XIV, комната 1,<br>
                 Москва, 119034
               </span>
@@ -93,6 +123,13 @@
         </div>
       </div>
     </div>
+
+    <!-- Всплывающее уведомление -->
+    <transition name="fade">
+      <div v-if="copiedMessage" class="copied-toast">
+        {{ copiedMessage }}
+      </div>
+    </transition>
   </footer>
 </template>
 
@@ -103,7 +140,8 @@ export default {
   name: 'AppFooter',
   setup() {
     const currentYear = ref(new Date().getFullYear());
-    
+    const copiedMessage = ref('');
+
     const navItems = [
       { title: 'Главная', path: '/' },
       { title: 'Проекты', path: '/projects' },
@@ -120,11 +158,23 @@ export default {
       'Авторский надзор',
       'Представитель заказчика'
     ];
+
+    const copyToClipboard = async (text) => {
+      try {
+        await navigator.clipboard.writeText(text);
+        copiedMessage.value = 'Скопировано!';
+        setTimeout(() => copiedMessage.value = '', 2000);
+      } catch (err) {
+        console.error('Ошибка копирования', err);
+      }
+    };
     
     return {
       currentYear,
       navItems,
-      services
+      services,
+      copiedMessage,
+      copyToClipboard
     };
   }
 }
@@ -186,7 +236,6 @@ export default {
   margin-bottom: 1.5rem;
 }
 
-/* Заголовки без линии */
 .footer-title {
   font-size: 1.1rem;
   font-weight: 500;
@@ -195,7 +244,6 @@ export default {
   padding: 0;
 }
 
-/* Ссылки */
 .footer-links a {
   display: block;
   font-size: 0.95rem;
@@ -203,7 +251,7 @@ export default {
   text-decoration: none;
   margin-bottom: 0.5rem;
   transition: opacity 0.3s ease;
-  padding-left: 0; /* выравнивание с заголовком */
+  padding-left: 0;
 }
 
 .footer-links a:hover {
@@ -230,10 +278,12 @@ export default {
   color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
   transition: opacity 0.3s ease;
-  padding-left: 0; /* выравнивание с заголовком */
+  padding-left: 0;
+  cursor: pointer;
 }
 
-.footer-contacts a:hover {
+.footer-contacts a:hover,
+.footer-contacts .footer-address:hover {
   opacity: 1 !important;
   color: #fff;
 }
@@ -242,7 +292,6 @@ export default {
   line-height: 1.4;
 }
 
-/* Социальные иконки */
 .social-links a {
   color: rgba(255, 255, 255, 0.75);
   font-size: 1.25rem;
@@ -255,7 +304,6 @@ export default {
   color: #fff;
 }
 
-/* Копирайт */
 .copyright {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 2rem;
@@ -271,7 +319,29 @@ small {
   font-size: 0.85rem;
 }
 
-/* Адаптив для мобильных */
+/* Всплывающее уведомление */
+.copied-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  z-index: 9999;
+}
+
+/* Анимация появления/исчезновения */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.4s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 @media (max-width: 768px) {
   .app-footer {
     padding-top: 3rem;
@@ -284,7 +354,6 @@ small {
     justify-content: center;
   }
   
-  /* Убираем отступ между колонками, Bootstrap сам управит */
   .row.g-4 > [class*="col-"] {
     margin-bottom: 1.5rem;
   }
@@ -295,4 +364,3 @@ small {
   }
 }
 </style>
-
