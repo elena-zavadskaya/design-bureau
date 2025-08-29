@@ -153,6 +153,7 @@ export default {
 
 <style scoped>
 .contacts-page {
+  font-family: 'Helvetica Neue Cyr', sans-serif;
   padding-top: 8rem;
   padding-bottom: 6rem;
   position: relative;

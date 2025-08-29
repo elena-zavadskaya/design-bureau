@@ -28,6 +28,7 @@ export default {
 
 <style scoped>
 .cta-section {
+  font-family: 'Helvetica Neue Cyr', sans-serif;
   padding: 100px 0;
   position: relative;
   color: white;

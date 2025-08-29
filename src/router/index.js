@@ -53,6 +53,18 @@ const routes = [
     component: () => import('../views/ContactView.vue')
   },
   {
+    path: '/admin',
+    name: 'admin',
+    component: () => import('../views/AdminLogin.vue'),
+    meta: { requiresAuth: false }
+  },
+  {
+    path: '/admin-panel',
+    name: 'admin-panel',
+    component: () => import('../views/AdminPanel.vue'),
+    meta: { requiresAuth: true }
+  },
+  {
     path: '/:pathMatch(.*)*',
     redirect: '/'
   }
@@ -73,6 +85,19 @@ const router = createRouter({
     } else {
       return { top: 0, behavior: 'smooth' }
     }
+  }
+})
+
+// Навигационный guard для проверки авторизации
+router.beforeEach((to, from, next) => {
+  const isAuthenticated = localStorage.getItem('admin-authenticated') === 'true'
+  
+  if (to.meta.requiresAuth && !isAuthenticated) {
+    next('/admin')
+  } else if (to.name === 'admin' && isAuthenticated) {
+    next('/admin-panel')
+  } else {
+    next()
   }
 })
 

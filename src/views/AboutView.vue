@@ -92,23 +92,35 @@
         <div class="timeline">
           <div class="timeline-item">
             <div class="year">2009</div>
-            <div class="event">Основание студии в Москве.</div>
+            <div class="event">Основание дизайн-бюро E.S.S.E. Design & Decoration в Москве</div>
           </div>
           <div class="timeline-item">
-            <div class="year">2012</div>
-            <div class="event">Первый международный проект.</div>
+            <div class="year">2010</div>
+            <div class="event">Первый проект частной резиденции 1000 кв. метров</div>
           </div>
           <div class="timeline-item">
-            <div class="year">2016</div>
-            <div class="event">Участие в выставке Batimat.</div>
+            <div class="year">2013</div>
+            <div class="event">Первый международный проект частной резиденции в Лондоне</div>
           </div>
           <div class="timeline-item">
-            <div class="year">2020</div>
-            <div class="event">Запуск масштабного проекта реновации ЦДЛ.</div>
+            <div class="year">2015</div>
+            <div class="event">Начало работы над историческим интерьером ресторана "ЦДЛ"</div>
+          </div>
+          <div class="timeline-item">
+            <div class="year">2017</div>
+            <div class="event">Первое участие в "Квартирном вопросе" на НТВ</div>
+          </div>
+          <div class="timeline-item">
+            <div class="year">2019</div>
+            <div class="event">Основание онлайн-галереи E.S.S.E. Art & Poster</div>
+          </div>
+          <div class="timeline-item">
+            <div class="year">2023</div>
+            <div class="event">Амбассадор экспозиции "Русский интерьер" Российского антикварного салона</div>
           </div>
           <div class="timeline-item">
             <div class="year">2024</div>
-            <div class="event">ТОП-100 дизайнеров по версии журнала «Интерьерный».</div>
+            <div class="event">В списке "100 лучших дизайнеров России" по версии журнала "Интерьерный"</div>
           </div>
         </div>
       </section>
@@ -164,7 +176,7 @@ export default {
 
 <style scoped>
 .about-page {
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Helvetica Neue Cyr', sans-serif;
   color: #1a1b22;
   background: #ffffff url('/images/about/texture-light.png') repeat;
 }
@@ -261,7 +273,7 @@ export default {
 
 .highlight {
   background: #f0f0f0;
-  padding: 2rem;
+  padding: 0.5rem;
   font-size: 1.15rem;
   text-align: center;
   font-weight: 500;
@@ -482,6 +494,10 @@ export default {
   .philosophy-container {
     padding: 0 1.5rem;
   }
+
+  .highlight {
+    padding: 0.5rem;
+  }
   
   .founders-section h2 {
     margin-bottom: 1.5rem;
@@ -495,6 +511,9 @@ export default {
   
   .philosophy-container {
     padding: 0 2rem;
+  }
+  .highlight {
+    padding: 0.5rem;
   }
 }
 </style>

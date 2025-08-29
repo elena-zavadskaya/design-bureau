@@ -4,6 +4,7 @@
     <section class="hero-header-bg" :style="{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${headerBg})` }">
       <div class="hero-header">
         <h1>Галерея E.S.S.E. Art & Poster</h1>
+        <p class="hero-intro-text">Репродукции картин и постеры для вашего интерьера</p>
       </div>
     </section>
 
@@ -195,7 +196,9 @@ export default {
 
 <style scoped>
 .gallery-content {
+  font-family: 'Helvetica Neue Cyr', sans-serif;
   padding-bottom: 3rem;
+  padding-right: 3rem;
 }
 
 .gallery-page {

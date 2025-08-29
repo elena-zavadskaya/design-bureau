@@ -46,6 +46,8 @@ export default {
 
 <style scoped>
 .featured-projects {
+  font-family: 'Helvetica Neue Cyr', sans-serif;
+  letter-spacing: 0.5px;
   padding-top: 4rem;
   padding-bottom: 4rem;
   margin-bottom: 4rem;
@@ -63,5 +65,11 @@ export default {
 
 .project-item:hover {
   transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+  .featured-projects {
+    padding-right: 1.5rem;
+  }
 }
 </style>

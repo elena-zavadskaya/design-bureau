@@ -10,7 +10,9 @@
           class="navbar-brand d-flex align-items-center"
           aria-label="Перейти на главную страницу"
         >
-          <span class="brand-name">E.S.S.E.</span>
+          <div class="brand-container">
+            <span class="brand-name">E.S.S.E. Design & Decoration</span>
+          </div>
         </RouterLink>
 
         <button 
@@ -138,6 +140,7 @@ export default {
 
 <style scoped>
 .app-header {
+  font-family: 'Helvetica Neue Cyr', sans-serif;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   transition: all 0.3s ease;
@@ -172,14 +175,20 @@ export default {
 .navbar-brand,
 .navbar-brand * {
   text-decoration: none !important;
+} 
+
+.brand-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .brand-name {
   font-weight: 400;
-  letter-spacing: 1px;
   font-size: 1.5rem;
   color: #fff;
-  text-decoration: none !important;
+  line-height: 1;
 }
 
 .navbar-collapse {
@@ -333,6 +342,10 @@ export default {
 }
 
 @media (max-width: 992px) {
+  .brand-name,
+  .brand-subtitle {
+    font-size: 1rem;
+  }
   .navbar-collapse {
     position: fixed;
     top: 0;

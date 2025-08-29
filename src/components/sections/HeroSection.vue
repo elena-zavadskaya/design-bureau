@@ -33,6 +33,7 @@ export default {
 
 <style scoped>
 .hero-section {
+  font-family: 'Helvetica Neue Cyr', sans-serif;
   min-height: 100vh;
   position: relative;
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), 
@@ -100,7 +101,7 @@ export default {
 
 .hero-title {
   font-size: 3.5rem;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 3px;
   text-transform: uppercase;
 }

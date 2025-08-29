@@ -111,7 +111,7 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem 2rem;
-  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-family: 'Helvetica Neue Cyr', sans-serif;
   color: #000;
   background: #fff;
 }

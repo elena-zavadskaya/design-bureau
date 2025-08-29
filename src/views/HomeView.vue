@@ -3,7 +3,8 @@
     <HeroSection />
     <div class="content">
       <FeaturedProjects :projects="featuredProjects" />
-      <AboutSection :values="values" />
+      <AboutNameSection />
+      <AboutSection :values="values" class="section-margin"/>
       <ServicesSection :services="services" />
       <TestimonialsSection :testimonials="testimonials" />
     </div>
@@ -13,6 +14,7 @@
 
 <script>
 import HeroSection from '@/components/sections/HeroSection.vue'
+import AboutNameSection from '@/components/sections/AboutNameSection.vue'
 import FeaturedProjects from '@/components/sections/FeaturedProjects.vue'
 import AboutSection from '@/components/sections/AboutSection.vue'
 import ServicesSection from '@/components/sections/ServicesSection.vue'
@@ -24,6 +26,7 @@ export default {
   name: 'HomeView',
   components: {
     HeroSection,
+    AboutNameSection,
     FeaturedProjects,
     AboutSection,
     ServicesSection,
@@ -52,10 +55,9 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .content {
-    padding-right: 1.5rem;
+  .section-margin {
+    margin-right: 1.5rem;
   }
-
   .home-view > section:not(.hero-section) {
     padding: 3rem 0 !important;
   }

@@ -48,6 +48,7 @@ export default {
 
 <style scoped>
 .services-section {
+  font-family: 'Helvetica Neue Cyr', sans-serif;
   background-color: #fafafa;
   padding-bottom: 5rem;
 }
@@ -73,6 +74,9 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .services-section {
+    padding-right: 1.5rem;
+  }
   .services-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;

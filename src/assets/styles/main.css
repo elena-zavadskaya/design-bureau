@@ -1,5 +1,93 @@
 @import '@/assets/buttons.css';
 
+@font-face {
+  font-family: 'Helvetica Neue Cyr';
+  src: url('@/assets/fonts/HelveticaNeueCyr-Light.eot');
+  src: local('Helvetica Neue Cyr Light'), local('HelveticaNeueCyr-Light'),
+    url('@/assets/fonts/HelveticaNeueCyr-Light.eot?#iefix') format('embedded-opentype'),
+    url('@/assets/fonts/HelveticaNeueCyr-Light.woff') format('woff'),
+    url('@/assets/fonts/HelveticaNeueCyr-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Cyr';
+  src: url('@/assets/fonts/HelveticaNeueCyr-LightItalic.eot');
+  src: local('Helvetica Neue Cyr Light Italic'), local('HelveticaNeueCyr-LightItalic'),
+    url('@/assets/fonts/HelveticaNeueCyr-LightItalic.eot?#iefix') format('embedded-opentype'),
+    url('@/assets/fonts/HelveticaNeueCyr-LightItalic.woff') format('woff'),
+    url('@/assets/fonts/HelveticaNeueCyr-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Cyr';
+  src: url('@/assets/fonts/HelveticaNeueCyr-Roman.eot');
+  src: local('Helvetica Neue Cyr Roman'), local('HelveticaNeueCyr-Roman'),
+    url('@/assets/fonts/HelveticaNeueCyr-Roman.eot?#iefix') format('embedded-opentype'),
+    url('@/assets/fonts/HelveticaNeueCyr-Roman.woff') format('woff'),
+    url('@/assets/fonts/HelveticaNeueCyr-Roman.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Cyr';
+  src: url('@/assets/fonts/HelveticaNeueCyr-Italic.eot');
+  src: local('Helvetica Neue Cyr Italic'), local('HelveticaNeueCyr-Italic'),
+    url('@/assets/fonts/HelveticaNeueCyr-Italic.eot?#iefix') format('embedded-opentype'),
+    url('@/assets/fonts/HelveticaNeueCyr-Italic.woff') format('woff'),
+    url('@/assets/fonts/HelveticaNeueCyr-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Cyr';
+  src: url('@/assets/fonts/HelveticaNeueCyr-Medium.eot');
+  src: local('Helvetica Neue Cyr Medium'), local('HelveticaNeueCyr-Medium'),
+    url('@/assets/fonts/HelveticaNeueCyr-Medium.eot?#iefix') format('embedded-opentype'),
+    url('@/assets/fonts/HelveticaNeueCyr-Medium.woff') format('woff'),
+    url('@/assets/fonts/HelveticaNeueCyr-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Cyr';
+  src: url('@/assets/fonts/HelveticaNeueCyr-MediumItalic.eot');
+  src: local('Helvetica Neue Cyr Medium Italic'), local('HelveticaNeueCyr-MediumItalic'),
+    url('@/assets/fonts/HelveticaNeueCyr-MediumItalic.eot?#iefix') format('embedded-opentype'),
+    url('@/assets/fonts/HelveticaNeueCyr-MediumItalic.woff') format('woff'),
+    url('@/assets/fonts/HelveticaNeueCyr-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Cyr';
+  src: url('@/assets/fonts/HelveticaNeueCyr-Bold.eot');
+  src: local('Helvetica Neue Cyr Bold'), local('HelveticaNeueCyr-Bold'),
+    url('@/assets/fonts/HelveticaNeueCyr-Bold.eot?#iefix') format('embedded-opentype'),
+    url('@/assets/fonts/HelveticaNeueCyr-Bold.woff') format('woff'),
+    url('@/assets/fonts/HelveticaNeueCyr-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue Cyr';
+  src: url('@/assets/fonts/HelveticaNeueCyr-Black.eot');
+  src: local('Helvetica Neue Cyr Black'), local('HelveticaNeueCyr-Black'),
+    url('@/assets/fonts/HelveticaNeueCyr-Black.eot?#iefix') format('embedded-opentype'),
+    url('@/assets/fonts/HelveticaNeueCyr-Black.woff') format('woff'),
+    url('@/assets/fonts/HelveticaNeueCyr-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 /* КНОПКИ */
 .btn,
 a.btn,
@@ -161,31 +249,38 @@ nav.navbar {
 }
 
 .section-title {
+  font-family: 'Helvetica Neue Cyr', sans-serif;
   font-size: 2.5rem;
-  font-weight: 400;
-  letter-spacing: -0.5px;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: 1px;
   position: relative;
   display: inline-block;
   margin-bottom: 1.5rem;
+  text-transform: uppercase;
 }
 
 .section-header .section-title::after {
-  content: "";
+  content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
+  width: 80px;
   height: 2px;
-  background-color: #000;
+  background: linear-gradient(90deg, transparent, #666666, transparent);
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
-  color: #6c757d;
+  font-family: 'Helvetica Neue Cyr', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #666666;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
 }
 
 /* ГЛОБАЛЬНЫЕ СТИЛИ УВЕДОМЛЕНИЙ */
@@ -234,10 +329,11 @@ nav.navbar {
 @media (max-width: 768px) {
   .section-title {
     font-size: 2rem;
+    letter-spacing: 1px;
   }
   
   .section-subtitle {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   
   .section-header .section-title::after {
@@ -252,17 +348,21 @@ nav.navbar {
   }
 }
 
-/* main.css - добавленные стили для хедера */
+/* ХЕДЕР СТРАНИЦ */
 .hero-header-bg {
   background-size: cover;
   background-position: center;
-  padding: 12rem 0;
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   transform: translateX(-50%);
   margin-bottom: 4rem;
+  height: 500px;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-header {
@@ -277,13 +377,10 @@ nav.navbar {
 
 .hero-header h1 {
   font-size: 2.8rem;
-  font-weight: 600; /* Изменено с 300 на 600 (жирнее) */
+  font-weight: 600;
   letter-spacing: -0.5px;
   margin-bottom: 1.5rem;
-  /* Убрано padding-bottom и position: relative */
 }
-
-/* Убрано правило .hero-header h1::after (линия подчеркивания) */
 
 .hero-intro-text {
   font-size: 1.1rem;
@@ -307,9 +404,10 @@ nav.navbar {
   background: rgba(255, 255, 255, 0.7);
 }
 
+/* Адаптация для мобильных устройств */
 @media (max-width: 768px) {
   .hero-header-bg {
-    padding: 5rem 0;
+    height: 500px;
   }
   
   .hero-header h1 {
@@ -319,10 +417,27 @@ nav.navbar {
 
 @media (max-width: 480px) {
   .hero-header-bg {
-    padding: 4rem 0;
+    height: 600px;
   }
   
   .hero-header h1 {
     font-size: 1.8rem;
+  }
+  
+  .hero-intro-text {
+    font-size: 1rem;
+    padding-top: 1.5rem;
+  }
+}
+
+.about-name-section .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 768px) {
+  .about-name-section .container {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }

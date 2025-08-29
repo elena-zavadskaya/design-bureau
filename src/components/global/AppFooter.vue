@@ -23,6 +23,19 @@
               <i class="bi bi-instagram"></i>
             </a>
 
+            <!-- VK -->
+            <a 
+              href="https://vk.com/esse.designdecoration"
+              class="text-white me-3 vk-link"
+              aria-label="ВКонтакте"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg class="vk-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93V15.07C2 20.67 3.33 22 8.93 22H15.07C20.67 22 22 20.67 22 15.07V8.93C22 3.33 20.67 2 15.07 2M18.15 16.27H16.69C16.14 16.27 15.97 15.82 15 14.83C14.12 14 13.74 13.88 13.53 13.88C13.24 13.88 13.15 13.96 13.15 14.38V15.69C13.15 16.04 13.04 16.26 12.11 16.26C10.57 16.26 8.86 15.32 7.66 13.59C5.85 11.05 5.36 9.13 5.36 8.75C5.36 8.54 5.43 8.34 5.85 8.34H7.32C7.69 8.34 7.83 8.5 7.97 8.9C8.69 10.96 9.89 12.76 10.38 12.76C10.57 12.76 10.65 12.66 10.65 12.25V10.1C10.6 9.12 10.07 9.03 10.07 8.68C10.07 8.5 10.21 8.34 10.44 8.34H12.73C13.04 8.34 13.15 8.5 13.15 8.88V11.77C13.15 12.08 13.28 12.19 13.53 12.19C13.75 12.19 14.05 12.08 14.37 11.74C15.43 10.57 16.16 8.76 16.16 8.76C16.28 8.55 16.43 8.34 16.81 8.34H18.18C18.57 8.34 18.72 8.68 18.6 8.97C18.34 9.94 16.41 12.05 16.43 12.05C16.27 12.27 16.21 12.35 16.43 12.65C16.58 12.88 17.09 13.49 17.43 13.91C18.05 14.7 18.53 15.28 18.66 15.59C18.78 15.9 18.66 16.27 18.15 16.27Z"/>
+              </svg>
+            </a>
+
             <!-- Phone -->
             <a 
               href="#"
@@ -183,6 +196,7 @@ export default {
 
 <style scoped>
 .app-footer {
+  font-family: 'Helvetica Neue Cyr', sans-serif;
   background-color: #000;
   color: #fff;
   padding-top: 4rem;
@@ -298,11 +312,25 @@ export default {
   font-size: 1.25rem;
   margin-right: 0.75rem;
   transition: opacity 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.25rem; /* Фиксированная высота для выравнивания */
 }
 
 .social-links a:hover {
   opacity: 1;
   color: #fff;
+}
+
+.vk-link {
+  position: relative;
+  top: 5px; /* Небольшая корректировка для точного выравнивания */
+}
+
+.vk-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .copyright {

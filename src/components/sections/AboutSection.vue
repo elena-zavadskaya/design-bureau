@@ -3,14 +3,12 @@
     <div class="container">
       <div class="section-header mb-6">
         <h2 class="section-title">Философия бюро</h2>
+        <p class="section-subtitle">Создаём интерьеры, которые выражают личность заказчиков.</p>
       </div>
       
       <div class="row align-items-center">
         <div class="col-12 col-lg-6 mb-5 mb-lg-0">
           <div class="about-text">
-            <p class="lead">
-              Создаём интерьеры, которые выражают личность заказчиков.
-            </p>
             <p class="description">
               Основано в 2009 году Екатериной Тищенко и Светланой Шерварли. В 2024 году вошли в ТОП-100 лучших дизайнеров интерьера.
             </p>
@@ -67,17 +65,10 @@ export default {
 
 <style scoped>
 .about-section {
+  font-family: 'Helvetica Neue Cyr', sans-serif;
   background: white;
   padding: 4rem 0;
   margin-bottom: 4rem;
-}
-
-.about-text .lead {
-  font-size: 1.3rem;
-  font-weight: 400;
-  color: #222;
-  margin-bottom: 1.5rem;
-  max-width: 500px;
 }
 
 .about-text .description {
@@ -85,6 +76,7 @@ export default {
   color: #555;
   max-width: 500px;
   line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
 .values-grid {
@@ -158,10 +150,6 @@ export default {
   
   .value-desc {
     font-size: 0.95rem;
-  }
-  
-  .about-text .lead {
-    font-size: 1.2rem;
   }
   
   .about-text .description {

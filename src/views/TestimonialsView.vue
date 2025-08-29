@@ -11,14 +11,27 @@
           <span class="title-text">Отзывы клиентов</span>
           <span class="title-line"></span>
         </h1>
-        <!-- Добавлен класс mb-5 для отступа снизу -->
         <p class="section-subtitle max-w-2xl mx-auto mt-4 mb-5">
           Что говорят о нас те, кто уже доверился нашему дизайну
         </p>
       </div>
 
+      <!-- Состояние загрузки -->
+      <div v-if="loading" class="text-center py-5">
+        <div class="spinner-border text-dark" role="status">
+          <span class="visually-hidden">Загрузка...</span>
+        </div>
+        <p class="mt-3">Загружаем отзывы...</p>
+      </div>
+
+      <!-- Состояние ошибки -->
+      <div v-else-if="error" class="alert alert-danger text-center">
+        <p>Не удалось загрузить отзывы. Пожалуйста, попробуйте позже.</p>
+        <button @click="loadTestimonials" class="btn btn-outline-dark mt-2">Попробовать снова</button>
+      </div>
+
       <!-- Сетка отзывов - 2 колонки с естественной высотой -->
-      <div class="row g-5 justify-content-center">
+      <div v-else class="row g-5 justify-content-center">
         <div 
           v-for="(testimonial, index) in testimonials" 
           :key="testimonial.id"
@@ -35,28 +48,89 @@
               
               <div class="testimonial-author">
                 <div class="author-name">{{ testimonial.author }}</div>
-                <div class="source">
-                  <a :href="'https://' + testimonial.source" target="_blank" class="source-link">
-                    {{ testimonial.source }}
+                <div v-if="testimonial.source" class="source">
+                  <a 
+                    v-if="isValidHttpUrl(testimonial.source)" 
+                    :href="formatSourceUrl(testimonial.source)" 
+                    target="_blank" 
+                    class="source-link"
+                  >
+                    {{ formatSourceDisplay(testimonial.source) }}
                   </a>
+                  <span v-else class="source-text">
+                    {{ testimonial.source }}
+                  </span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Сообщение, если нет отзывов -->
+      <div v-if="!loading && !error && testimonials.length === 0" class="text-center py-5">
+        <p>Пока нет отзывов. Будьте первым, кто оставит отзыв!</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { testimonials } from '@/data/homeData.js'
+const API_BASE_URL = 'https://ci96892.tw1.ru/api';
 
 export default {
   name: 'TestimonialsView',
   data() {
     return {
-      testimonials: testimonials
+      testimonials: [],
+      loading: true,
+      error: false
+    }
+  },
+  mounted() {
+    this.loadTestimonials();
+  },
+  methods: {
+    async loadTestimonials() {
+      this.loading = true;
+      this.error = false;
+      
+      try {
+        const response = await fetch(`${API_BASE_URL}/testimonials/`);
+        if (response.ok) {
+          this.testimonials = await response.json();
+        } else {
+          console.error('Ошибка загрузки отзывов:', response.status);
+          this.error = true;
+        }
+      } catch (error) {
+        console.error('Ошибка загрузки отзывов:', error);
+        this.error = true;
+      } finally {
+        this.loading = false;
+      }
+    },
+    
+    isValidHttpUrl(string) {
+      try {
+        const url = new URL(string);
+        return url.protocol === "http:" || url.protocol === "https:";
+      } catch (_) {
+        return false;
+      }
+    },
+    
+    formatSourceUrl(source) {
+      if (source.startsWith('http://') || source.startsWith('https://')) {
+        return source;
+      }
+      return `https://${source}`;
+    },
+    
+    formatSourceDisplay(source) {
+      return source
+        .replace(/^(https?:\/\/)?(www\.)?/, '')
+        .replace(/\/$/, '');
     }
   },
   metaInfo() {
@@ -255,7 +329,6 @@ export default {
     padding: 3.5rem !important;
   }
   
-  /* Уменьшаем отступ подзаголовка на планшетах */
   .section-subtitle {
     margin-bottom: 3rem !important;
   }
@@ -274,13 +347,17 @@ export default {
     font-size: 1rem;
   }
   
-  /* Уменьшаем отступ подзаголовка на мобильных */
   .section-subtitle {
     margin-bottom: 2.5rem !important;
   }
 }
 
 @media (max-width: 576px) {
+  .testimonials-page {
+    padding-right: 1.5rem;
+  }
+
+
   .page-title {
     font-size: 2.5rem;
   }
@@ -293,7 +370,6 @@ export default {
     font-size: 0.95rem;
   }
   
-  /* Уменьшаем отступ подзаголовка на маленьких экранах */
   .section-subtitle {
     margin-bottom: 2rem !important;
   }

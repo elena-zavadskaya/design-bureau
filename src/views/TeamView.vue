@@ -127,7 +127,7 @@ export default {
 
 <style scoped>
 .team-page {
-  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-family: 'Helvetica Neue Cyr', sans-serif;
   color: #1a1b22;
   background: #fff;
 }
@@ -265,6 +265,7 @@ export default {
 }
 
 .team-quote blockquote {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
   font-size: 1.4rem;
   font-weight: 300;
   font-style: italic;

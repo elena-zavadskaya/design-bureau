@@ -41,6 +41,7 @@ export default {
 .testimonial-slider {
   max-width: 800px;
   margin: 0 auto;
+  
 }
 
 .testimonial-item {
@@ -103,6 +104,9 @@ export default {
 }
 
 @media (max-width: 768px) {
+  .testimonial-slider {
+    padding-right: 1.5rem;
+  }
   .testimonial-item {
     min-height: 350px;
     padding: 2rem;
